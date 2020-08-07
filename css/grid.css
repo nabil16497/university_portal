@@ -1,0 +1,57 @@
+#content{
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	margin: 2px;
+	padding-top: 10px;
+	padding-bottom:10px;
+
+	
+
+}
+#content div{
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: 3px solid #000000;
+	margin: 5px;
+	border-radius: 10px;
+	background: #0c7343;
+
+}
+button{
+	margin: 10px;
+	text-align: center;
+	color: #ffffff;
+	background: #0c7343;
+	border:none;
+	box-shadow: none;
+	cursor: pointer;
+
+}
+
+ul li a{
+	margin: 5px;
+	border-radius: 7px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	background: #095430;
+}
+
+ul li{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul{
+	
+	list-style: none;
+}
+
+
+
+#content div:nth-child(even){
+	
+}
+

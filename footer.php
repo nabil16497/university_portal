@@ -6,7 +6,7 @@
 </head>
 <body>
 <footer>
-	Copyright &COPY 2017
+	Copyright &COPY G12
 </footer>
 </body>
 </html>
