@@ -1,0 +1,31 @@
+header{
+	background: #0c7352;
+	height: 90px;
+	border: 3px solid #000000;
+	border-radius: 20px;
+	
+
+}
+#logo{
+	float: left;
+	margin: 5px;
+	
+}
+
+
+#nav{
+	float: right;
+	padding-top: 15px;
+}
+
+a{
+	color: #ffffff;
+	text-decoration: none;
+}
+#nav li{
+	display: inline-block;
+	margin: 5px;
+	
+	padding-right: 10px;
+
+}
