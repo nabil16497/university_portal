@@ -11,8 +11,127 @@
 <body>
 
 <?php
+	$fname = $lname = $email = $dob = $gender = $contact = $blood = $nationality = $address = $dept = $program = "";
 
-$pperror ="";
+	$fnameerror = $lnameerror = $emailerror =  $doberror = $gendererror = $contacterror = $blooderror = $nationalityerror = $addresserror = $depterror = $programerror = "";
+
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST["firstname"])) {
+    $fnameerror = "Name can not be empty";
+  } else {
+  	$regex ="/^[a-zA-Z][a-zA-Z-.]+$/";
+  	if(!preg_match($regex, $_POST["firstname"])){
+  		$fnameerror = "Only letters, period and dash is allowed";
+  	}
+    else{
+    	$fname = $_POST["firstname"];
+    }
+  }
+  
+  if (empty($_POST["lastname"])) {
+    $fnameerror = "Name can not be empty";
+  } else {
+  	$regex ="/^[a-zA-Z][a-zA-Z-.]+$/";
+  	if(!preg_match($regex, $_POST["lastname"])){
+  		$fnameerror = "Only letters, period and dash is allowed";
+  	}
+    else{
+    	$fname = $_POST["lastname"];
+    }
+  }
+
+  if (empty($_POST["email"])) {
+    $emailerror = "Email can not be empty";
+  } else {
+    $email = ($_POST["email"]);
+   
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailerror = "Invalid email format";
+      $email="";
+    }
+  }
+
+  if(empty($_POST["dob"])){
+  	$doberror = "Select your Date of Birth";
+  }
+  else{
+
+  	$dob=$_POST["dob"];
+
+  }
+
+  if (empty($_POST["gender"])) {
+    $gendererror = "Select gender";
+  } else {
+    $gender = $_POST["gender"];
+  }
+  if(empty($_POST["contact"])){
+  	$contacterror = "You Must Enter Your Contact Number.";
+  }
+  {
+  $pregx = "/^([+]{1}[8]{2})?(01){1}[3-9]{1}\d{8})$/";
+
+  if(!preg_match($pregx, $_POST["contact"]))
+  {
+  	$contacterror="Invalid Phone Number";
+  }
+
+  else{
+  	$contact = $_POST["contact"];
+  }
+ }
+
+
+  if(empty($_POST["blood"])){
+  	$blooderror = "Blood group can not be empty";
+  }
+  else{
+  	$blood = $_POST["blood"];
+  }
+
+
+   if(empty($_POST["nationality"])){
+  	$nationalityerror = "Select Nationality";
+  }
+  else{
+  	$nationality = $_POST["nationality"];
+  }
+
+  if(empty($_POST["department"])){
+  	$depterror = "Select A Department";
+  }
+  else{
+  	$dept = $_POST["department"];
+  }
+
+  if(empty($_POST["address"])){
+  	$addresserror = "Write Done An Address.";
+  }
+  else{
+  	$address = $_POST["address"];
+  }
+
+  if(empty($_POST["program"])){
+  	$programerror = "Select A Program";
+  }
+  else{
+  	$program = $_POST["program"];
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+	$pperror ="";
 	$picaddress = "userdp.png";
 	if(isset($_POST['submit'])){
 	$file = $_FILES['file'];
@@ -58,10 +177,20 @@ $pperror ="";
  ?>
 <?php include('header1.php');?>
 
-<div style="border:3px solid #000000;border-radius: 10px; margin-top: 20px;margin-bottom: 10px;padding: auto;">
+<div style="border:3px solid #000000;border-radius: 10px; margin-top: 10px;margin-bottom: 10px;padding: auto;">
+	<span style="text-align: center;color: #e80000"><h1>Student Registration</h1></span>
 	<div style="margin: auto; font-size: 15px;padding: 10px;">
-		<form action="changepp.php" method="POST" enctype="multipart/form-data">
+		<form action="studentreg.php" method="POST" enctype="multipart/form-data">
 			<table style="padding: 10px;">
+				<tr>
+					<td>
+						ID:
+					</td>
+					<td>
+						<input type="text" name="id" placeholder="XX-XXXXX-X">
+					</td>
+				</tr>
+
 				<tr>
 					<td>
 						First Name:
@@ -73,7 +202,7 @@ $pperror ="";
 
 					<img src= <?php echo $picaddress; ?> alt="Profile Picture" style="max-height: 200px ; margin-bottom: 10px;"><br>
   					<input type="file" name="file">
-  					<span style="color: #ff0000"><?php echo $pperror ?></span>
+  					<span style="color: #ff0000">
 					</td>
 
 				</tr>
@@ -102,9 +231,8 @@ $pperror ="";
 						Gender:
 					</td>
 					<td>
-						<input type="radio" name="gender" value="male"> Male
-						<input type="radio" name="gender" value="female"> Female
-						<input type="radio" name="gender" value="other"> Other 
+						<input type="radio" name="gender" value=1> Male
+						<input type="radio" name="gender" value=0> Female 
 					</td>
 				</tr>
 
@@ -143,7 +271,7 @@ $pperror ="";
 						Address:
 					</td>
 					<td>
-						<textarea name="address" rows="6" cols="50">Please Write Your Address Here-</textarea>
+						<textarea name="address" rows="6" cols="50" placeholder="Please Write Your Address Here-"></textarea>
 					</td>
 				</tr>
 
@@ -186,7 +314,7 @@ $pperror ="";
 			</table>
 
 			<hr>
-			<input type="submit" value="submit" name="submit" style ="margin-bottom: 10px; margin-left: 20px;">
+			<input type="submit" value="submit" name="submit" style ="margin-bottom: 10px; margin-left: 25px; font-size: 15px;">
 
 		</form>
 	</div>
