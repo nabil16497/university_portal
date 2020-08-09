@@ -43,7 +43,7 @@ $students = fetchAllStudents();
 			<tbody>
 				<?php foreach ($students as $i => $student): ?>
 					<tr>
-						<td><a href="showStudent.php?id=<?php echo $student['ID'] ?>"><?php echo $student['firstname'] ?></a></td>
+						<td><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['firstname'] ?></a></td>
 
 						<td><?php echo $student['lastname'] ?></td>
 						<td><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
