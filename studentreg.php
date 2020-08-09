@@ -29,7 +29,7 @@
 					</td>
 					<td rowspan="11">
 
-					<img src= <?php echo $picaddress; ?> alt="Profile Picture" style="max-height: 200px ; margin-bottom: 10px;"><br>
+					<img src= "userdp.png" alt="Profile Picture" style="max-height: 200px ; margin-bottom: 10px;"><br>
   					<input type="file" name="file">
   					<span style="color: #ff0000">
 					</td>
@@ -61,7 +61,7 @@
 					</td>
 					<td>
 						<input type="radio" name="gender" value=1> Male
-						<input type="radio" name="gender" value=0> Female 
+						<input type="radio" name="gender" value=2> Female 
 					</td>
 				</tr>
 

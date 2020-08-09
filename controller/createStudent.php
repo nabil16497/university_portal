@@ -60,7 +60,11 @@ require_once '../model.php';
   if (empty($_POST["gender"])) {
     $gendererror = "Select gender";
   } else {
-    $data["gender"] = $_POST["gender"];
+    if($_POST["gender"] == 1)
+    {$data["gender"] = 1;}
+    else{
+      $data["gender"] = 0;
+    }
   }
   if(empty($_POST["contact"])){
   	$contacterror = "You Must Enter Your Contact Number.";
@@ -173,7 +177,7 @@ require_once '../model.php';
 
   else{
 
-  $errorm = $fnameerror."  |  ".$lnameerror."  |  ".$doberror."  |  ".$gendererror."  |  ".$contacterror."  |  ".$emailerror."  |  ".$nationalityerror."  |  ".$addresserror."  |  ".$blooderror."  |  ".$doberror."  |  ".$programerror."  |  ".$pperror;
+  $errorm = " | ".$fnameerror."  |  ".$lnameerror."  |  ".$doberror."  |  ".$gendererror."  |  ".$contacterror."  |  ".$emailerror."  |  ".$nationalityerror."  |  ".$addresserror."  |  ".$blooderror."  |  ".$depterror."  |  ".$programerror."  |  "." | ".$pperror." | ";
     echo "<script>alert('Error-".$errorm."'); window.location.href='../studentreg.php';</script>"; 
 
  
