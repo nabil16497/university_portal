@@ -5,7 +5,7 @@ require_once 'db_connect.php';
 
 function showAllStudents(){
 	$conn = db_conn();
-    $selectQuery = 'SELECT firstname lastname contact email gender  dob  dept program nationality blood image address password FROM `student_info` ';
+    $selectQuery = 'SELECT * FROM `student_info` ';
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
@@ -17,7 +17,7 @@ function showAllStudents(){
 
 function showStudent($id){
 	$conn = db_conn();
-	$selectQuery = "SELECT firstname lastname contact email gender  dob  dept program nationality blood image address password FROM `student_info` where id = ?";
+	$selectQuery = "SELECT * FROM `student_info` where id = ?";
 
     try {
         $stmt = $conn->prepare($selectQuery);
@@ -30,9 +30,9 @@ function showStudent($id){
     return $row;
 }
 
-function searchUser($user_name){
+function searchUser($id){
     $conn = db_conn();
-    $selectQuery = "SELECT * FROM `user_info` WHERE Username LIKE '%$user_name%'";
+    $selectQuery = "SELECT * FROM `student_info` WHERE id LIKE '%$id%'";
 
     
     try{
@@ -78,8 +78,8 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :program,
 
 
 function updateStudent($id, $data){
-    $conn = db_conn();
     $selectQuery = "UPDATE student_info set firstname = ?, lastname = ?, dob = ?,  where id = ?";
+    $conn = db_conn();
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([
