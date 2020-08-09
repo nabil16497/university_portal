@@ -31,7 +31,7 @@ $students = fetchAllStudents();
 	<span style="text-align: center;color: #e80000"><h1>All Students</h1></span>
 	<div style="margin: auto; font-size: 15px;padding: 10px;">
 
-		<table>
+		<table border="2px" style="text-align: center;margin: auto; font-size: 20px;">
 			<thead>
 				<tr>
 					<th>First Name</th>
@@ -43,7 +43,7 @@ $students = fetchAllStudents();
 			<tbody>
 				<?php foreach ($students as $i => $student): ?>
 					<tr>
-						<td><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['firstname'] ?></a></td>
+						<td><abbr title="Click here to see all full details"><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['firstname'] ?></a></abbr></td>
 
 						<td><?php echo $student['lastname'] ?></td>
 						<td><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>

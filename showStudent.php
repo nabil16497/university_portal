@@ -8,14 +8,25 @@ $student = fetchStudent($_GET['id']);
 <html>
 <head>
 	<title></title>
+	<style>
+		.divt{
+			border:3px solid #000000;
+			border-radius: 10px; 
+			margin-top: 10px;
+			margin-bottom: 10px;
+			padding: auto;
+			
+		}
+		
+	</style>
 </head>
 <body>
 <?php include('header1.php');?>
-<div style="border:3px solid #000000;border-radius: 10px; margin-top: 10px;margin-bottom: 10px;padding: auto;">
+<div class="divt">
 	<span style="text-align: center;color: #e80000"><h1>Edit Student Info</h1></span>
 	<div style="margin: auto; font-size: 15px;padding: 10px;">
 		
-		<table>
+		<table border="2px" style="text-align: center;margin: auto; font-size: 20px;">
 			<tr>
 				<th>First Name</th>
 				<th>Last Name</th>
@@ -31,8 +42,8 @@ $student = fetchStudent($_GET['id']);
 
 			</tr>
 			<tr>
-				<td><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['firstame'] ?></a></td>
-				<td><?php echo $student['lastame'] ?></td>
+				<td><?php echo $student['firstname'] ?></td>
+				<td><?php echo $student['lastname'] ?></td>
 				<td><?php echo $student['dob'] ?></td>
 				<td><?php echo $student['contact'] ?></td>
 				<td><?php echo $student['email'] ?></td>
