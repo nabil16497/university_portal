@@ -1,9 +1,4 @@
-<?php  
-require_once 'controller/studentInfo.php';
 
-$students = fetchAllStudents();
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +14,6 @@ $students = fetchAllStudents();
 		}
 		.divt a{
 			color: #0000ff;
-		}
-		.divt td,th{
-			padding: 20px;
-			border-radius: 10px;
 		}
 	</style>
 </head>
@@ -43,7 +34,7 @@ $students = fetchAllStudents();
     <br>
 	<div style="margin: auto; font-size: 15px;padding: 10px;">
 
-		<table border="2px" style="text-align: center;margin: auto; font-size: 20px; border-radius: 10px;">
+		<table border="2px" style="text-align: center;margin: auto; font-size: 20px;">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -54,14 +45,14 @@ $students = fetchAllStudents();
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($students as $i => $student): ?>
+				<?php foreach ($allSearchedUsers as $i => $user): ?>
 					<tr>
 						<td><abbr title="Click here to see all full details"><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['id'] ?></a></abbr></td>
 
 						<td><?php echo $student['firstname'] ?></td>
 						<td><?php echo $student['lastname'] ?></td>
 						<td><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
-						<td><a href="editStudentinfo.php?id=<?php echo $student['id'] ?>"><span style="border: 1px solid #000000;padding: 10px; margin-right: 15px; border-radius: 5px;">Edit</span></a><a href="controller/deleteStudent.php?id=<?php echo $student['id'] ?>"><span style="border: 1px solid #000000; padding: 10px; border-radius: 5px;">Delete</span></a></td>
+						<td><a href="editStudentinfo.php?id=<?php echo $student['id'] ?>">Edit</a>&nbsp<a href="controller/deleteStudent.php?id=<?php echo $student['id'] ?>">Delete</a></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
@@ -73,3 +64,7 @@ $students = fetchAllStudents();
 <?php include('footer.php');?>
 </body>
 </html>
+
+
+
+
