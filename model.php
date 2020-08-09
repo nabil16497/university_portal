@@ -78,12 +78,23 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :program,
 
 
 function updateStudent($id, $data){
-    $selectQuery = "UPDATE student_info set firstname = ?, lastname = ?, dob = ?,  where id = ?";
     $conn = db_conn();
+    $selectQuery = "UPDATE student_info set firstname=?, lastname?, contact=?, email=?, dept=?, program=?,image=?, address=?, password=? where id =?";
+
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([
-        	$data['name'], $data['surname'], $data['username'], $id
+
+            $data['firstname'],
+            $data['lastname'],
+            $data['contact'],
+            $data['email'],
+            $data['dob'],
+            $data['dept'],
+            $data['program'],
+            $data['image'],
+            $data['address']
+
         ]);
     }catch(PDOException $e){
         echo $e->getMessage();

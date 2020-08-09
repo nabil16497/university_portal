@@ -15,7 +15,7 @@ $student = fetchStudent($_GET['id']);
 			margin-top: 10px;
 			margin-bottom: 10px;
 			padding: auto;
-			
+
 		}
 		
 	</style>
@@ -23,7 +23,7 @@ $student = fetchStudent($_GET['id']);
 <body>
 <?php include('header1.php');?>
 <div class="divt">
-	<span style="text-align: center;color: #e80000"><h1>Edit Student Info</h1></span>
+	<span style="text-align: center;color: #e80000"><h1>Full Details</h1></span>
 	<div style="margin: auto; font-size: 15px;padding: 10px;">
 		
 		<table border="2px" style="text-align: center;margin: auto; font-size: 20px;">

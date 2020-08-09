@@ -2,7 +2,7 @@
 require_once '../model.php';
 
 
-if (isset($_POST['updateStudent'])) {
+if (isset($_POST['submit'])) {
 	$data["firstname"] = $_POST["firstname"];
 	$data["lastname"] = $_POST["lastname"];
 	$data["email"] = ($_POST["email"]);
@@ -62,12 +62,12 @@ if (isset($_POST['updateStudent'])) {
   if (updateStudent($_POST['id'], $data)) {
 
 
-  	echo "<script>alert('Student Sucessfully Registered.'); window.location.href='../showStudent.php?id=' . $_POST["id"]';</script>";
+  	#echo "<script>alert('Student Info Sucessfully Updated.'); window.location.href='../showStudent.php?id=' . $_POST["id"]';</script>";
 
 
   	#echo 'Successfully updated!!';
 
-  	#header('Location: ../showStudent.php?id=' . $_POST["id"]);
+  	header('Location: ../showStudent.php?id=' . $_POST["id"]);
   }
 } else {
 	echo 'You are not allowed to access this page.';

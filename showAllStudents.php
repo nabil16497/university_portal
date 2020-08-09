@@ -47,7 +47,7 @@ $students = fetchAllStudents();
 
 						<td><?php echo $student['lastname'] ?></td>
 						<td><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
-						<td><a href="editStudent.php?id=<?php echo $student['id'] ?>">Edit</a>&nbsp<a href="controller/deleteStudent.php?id=<?php echo $student['id'] ?>">Delete</a></td>
+						<td><a href="editStudentinfo.php?id=<?php echo $student['id'] ?>">Edit</a>&nbsp<a href="controller/deleteStudent.php?id=<?php echo $student['id'] ?>">Delete</a></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
