@@ -3,6 +3,27 @@
 require_once 'db_connect.php';
 
 
+function verify_user($uname,$pass){
+
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `admin_info` WHERE id = '$uname' AND pass = '$pass'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if(!empty($rows))
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+
+
 function showAllStudents(){
 	$conn = db_conn();
     $selectQuery = 'SELECT * FROM `student_info` ';
