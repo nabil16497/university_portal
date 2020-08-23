@@ -1,3 +1,18 @@
+<?php
+session_start();
+if(isset($_SESSION['uname'])){
+}
+
+else{
+
+	echo "<script>location.href='loginAdmin.php'</script>";
+}
+
+require_once 'controller/studentInfo.php';
+
+$allSearchedUsers = fetchAllStudents();
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +60,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($allSearchedUsers as $i => $user): ?>
+				<?php foreach ($allSearchedUsers as $i => $student): ?>
 					<tr>
 						<td><abbr title="Click here to see all full details"><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['id'] ?></a></abbr></td>
 
