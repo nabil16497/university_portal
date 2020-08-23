@@ -1,4 +1,12 @@
+<?php 
+if(isset($_SESSION['uname'])){
+}
 
+else{
+
+	echo "<script>location.href='loginAdmin.php'</script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +20,7 @@
 		</div>
 		<ul id="nav">
 			<li style="border-right: 1px solid #000000;"><a href="studentreg.php">Registration</a></li>
+			<li style="border-right: 1px solid #000000;"><a href="facultyreg.php">Faculty Registration</a></li>
 			<li style="border-right: 1px solid #000000;"><a href="showAllStudents.php">Show</a></li>
 			<li><a href="logout.php">Logout</a></li>
 		</ul>

@@ -1,4 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION['uname'])){
+}
 
+else{
+
+	echo "<script>location.href='loginAdmin.php'</script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
