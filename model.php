@@ -98,6 +98,37 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :program,
 }
 
 
+function addFaculty($data){
+    $conn = db_conn();
+    $selectQuery = "INSERT into faculty_info (firstname, lastname, contact, email, gender, dob, dept, nationality, blood, image, address, password)
+VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :nationality, :blood, :image, :address, :password)";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            ':firstname' => $data['firstname'],
+            ':lastname'  => $data['lastname'],
+            ':contact'  => $data['contact'],
+            ':email'  => $data['email'],
+            ':gender'  => $data['gender'],
+            ':dob'  => $data['dob'],
+            ':dept'  => $data['dept'],
+            ':nationality' => $data['nationality'],
+            ':blood'  => $data['blood'],
+            ':image'  => $data['image'],
+            ':address'  => $data['address'],
+            ':password' => $data['password']
+
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+
 function updateStudent($id, $data){
     $conn = db_conn();
     $selectQuery = "UPDATE `student_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?, `dob`=?, `dept`=?, `program`=?,`image`=?, `address`=? where `id` =?";

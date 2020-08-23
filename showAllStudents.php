@@ -56,7 +56,7 @@ $students = fetchAllStudents();
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Firsst Name</th>
+					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Image</th>
 					<th>Action</th>
