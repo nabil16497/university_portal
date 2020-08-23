@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +14,9 @@
 <?php include('header1.php');?>
 
 <div style="border:3px solid #000000;border-radius: 10px; margin-top: 10px;margin-bottom: 10px;padding: auto;">
-	<span style="text-align: center;color: #e80000"><h1>Student Registration</h1></span>
+	<span style="text-align: center;color: #e80000"><h1>Faculty Registration</h1></span>
 	<div style="margin: auto; font-size: 15px;padding: 10px;">
-		<form action="controller/createStudent.php" method="POST" enctype="multipart/form-data">
+		<form action="controller/createFaculty.php" method="POST" enctype="multipart/form-data">
 			<table style="padding: 10px;">
 				
 
@@ -133,14 +132,6 @@
 					</td>
 				</tr>
 
-				<tr>
-					<td>
-						Program:
-					</td>
-					<td>
-						<input type="text" name="program"style="font-size: 15px;">
-					</td>
-				</tr>
 				<tr>
 					<td>
 						Password:
