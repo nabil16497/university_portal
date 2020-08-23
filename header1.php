@@ -10,9 +10,11 @@
 			<a href="home.php"><img src="logo.png" style="height: 80px" alt="logo"></a>
 		</div>
 		<ul id="nav">
-			<li style="border-right: 1px solid #000000;"><a href="studentreg.php">Registration</a></li>
+			<li style="border-right: 1px solid #000000;"><a href="studentreg.php">Student Registration</a></li>
 			<li style="border-right: 1px solid #000000;"><a href="facultyreg.php">Faculty Registration</a></li>
-			<li style="border-right: 1px solid #000000;"><a href="showAllStudents.php">Show</a></li>
+			<li style="border-right: 1px solid #000000;"><a href="showAllStudents.php">Show Students</a></li>
+
+			<li style="border-right: 1px solid #000000;"><a href="showAllFacultys.php">Show Facultys</a></li>
 			<li><a href="logout.php">Logout</a></li>
 		</ul>
 	</header>
