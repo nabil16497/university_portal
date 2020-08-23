@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2020 at 12:53 PM
+-- Generation Time: Aug 24, 2020 at 12:43 AM
 -- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- PHP Version: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `university_portal`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_info`
+--
+
+CREATE TABLE `admin_info` (
+  `id` int(20) NOT NULL,
+  `pass` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin_info`
+--
+
+INSERT INTO `admin_info` (`id`, `pass`) VALUES
+(1234, 'naimul@');
 
 -- --------------------------------------------------------
 
@@ -41,9 +59,10 @@ CREATE TABLE `course` (
 --
 
 CREATE TABLE `faculty_info` (
-  `id` varchar(10) NOT NULL,
-  `fastname` varchar(20) NOT NULL,
+  `id` int(11) NOT NULL,
+  `firstname` varchar(20) NOT NULL,
   `lastname` varchar(20) NOT NULL,
+  `dob` date NOT NULL,
   `contact` varchar(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `address` varchar(200) NOT NULL,
@@ -55,6 +74,14 @@ CREATE TABLE `faculty_info` (
   `joiningdate` timestamp NOT NULL DEFAULT current_timestamp(),
   `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `faculty_info`
+--
+
+INSERT INTO `faculty_info` (`id`, `firstname`, `lastname`, `dob`, `contact`, `email`, `address`, `gender`, `dept`, `nationality`, `blood`, `image`, `joiningdate`, `password`) VALUES
+(2, 'Naimul', 'Rahman', '2020-08-08', '01642722', 'naimulds1@gmail.com', ' Cumilla\r\n							    \r\n							    \r\n							    \r\n							    \r\n							Cumilla																														', 1, 'Science', 'Bangladesh', 'A+ve', '../uploads/5f42da1dcf6800.86463659.jpg', '2020-08-23 17:15:01', '$2y$12$yEo0NHpTj9bEQNXVCSxJ0eT9DY1ywpdaw/WBczpGi5T15P89Gia9q'),
+(5, 'Asif', 'Khan', '2020-08-07', '0164272266', 'naimulds1@gmail.com', '    \r\n							    \r\n							Cumilla												', 1, 'Science', 'Bangladesh', 'A+ve', '', '2020-08-23 21:02:47', '$2y$12$9oS37ridNox/.srM77DjU.FQhbjJccdHXBNGIK6ceTaCqvndVjkom');
 
 -- --------------------------------------------------------
 
@@ -134,8 +161,8 @@ CREATE TABLE `student_info` (
 --
 
 INSERT INTO `student_info` (`id`, `firstname`, `lastname`, `contact`, `email`, `gender`, `dob`, `creditcomp`, `dept`, `program`, `nationality`, `blood`, `image`, `admissiondate`, `address`, `cgpa`, `graduationdate`, `password`) VALUES
-(1, 'ads', 'fghh', '01629528448', 'nabil16497@gmail.com', 1, '2020-08-04', 0, 'asdf', 'asdf', 'Bangladesh', 'A+ve', '../uploads/5f2e0fe41b8a14.87157350.png', '2020-08-08 02:37:24', 'asdfasdf', 0, NULL, '$2y$12$tbZcKmKnPPjeRa8madphC.TnXzokfM1Vxts93LOe3bRtKothAwOPC'),
-(2, 'ads', 'fghh', '01629528448', 'nabil16497@gmail.com', 1, '2020-08-04', 0, 'asdf', 'asdf', 'Bangladesh', 'A+ve', '../uploads/5f2e16058d2af3.04044741.png', '2020-08-08 03:03:33', 'asdfasdf', 0, NULL, '$2y$12$O0Wrqn.MtDhtedVPt3leoOKgKzQIYd00JwZY7RnHSHzTnp12MiLn6');
+(1, 'adss', 'fg', '0162952844', 'nabil16497@gmail.com', 1, '2020-08-04', 0, 'asdf', 'asdf', 'Bangladesh', 'A+ve', '', '2020-08-08 02:37:24', '    \r\n							    \r\n							    \r\n							    \r\n							asdfasdf																								', 0, NULL, '$2y$12$tbZcKmKnPPjeRa8madphC.TnXzokfM1Vxts93LOe3bRtKothAwOPC'),
+(4, 'Asif', 'Akbar', '0164272266', 'gtxbiscuit@gmail.com', 1, '2020-08-08', 0, 'Science', 'CSE', 'Bangladesh', 'A+ve', '../uploads/5f42ad121e1df6.18131431.jpg', '2020-08-23 17:53:22', 'Cumilla', 0, NULL, '$2y$12$u4WyU4fzS08bojIRZCcp0OYntFoHy2u3t3bMU5B4.cr70VUDFoR3C');
 
 -- --------------------------------------------------------
 
@@ -155,6 +182,12 @@ CREATE TABLE `student_semester` (
 --
 
 --
+-- Indexes for table `admin_info`
+--
+ALTER TABLE `admin_info`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
@@ -171,7 +204,7 @@ ALTER TABLE `faculty_info`
 --
 ALTER TABLE `faculty_semester`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `faculty_id` (`faculty_id`);
+  ADD UNIQUE KEY `faculty_id` (`faculty_id`);
 
 --
 -- Indexes for table `grade`
@@ -213,6 +246,12 @@ ALTER TABLE `course`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `faculty_info`
+--
+ALTER TABLE `faculty_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `faculty_semester`
 --
 ALTER TABLE `faculty_semester`
@@ -228,23 +267,13 @@ ALTER TABLE `grade`
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `student_semester`
 --
 ALTER TABLE `student_semester`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `faculty_semester`
---
-ALTER TABLE `faculty_semester`
-  ADD CONSTRAINT `faculty_semester_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculty_info` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
