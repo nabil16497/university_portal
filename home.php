@@ -33,22 +33,19 @@ else{
 <html>
 <head>
 	<title></title>
-	<style>
-		td{
-			padding: 15px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 </head>
 <body>
 
 
 <?php include('header1.php');?>
 
-<div style="border:3px solid #000000;border-radius: 10px; margin-top: 10px;margin-bottom: 10px;padding: auto;">
-	<div style="background-color: #e5e5e5; margin-top: 30px; margin-bottom: 30px;margin-left: auto; margin-right: auto; width: 450px ;font-size:  30px; padding: 20px; border-radius: 10px;">
-	<span style="text-align: center;color: #e80000"><h1>Welcome</h1></span>
+<div class="main_div">
+	<div class="main_internaldiv">
+	<span class="red_text, textc"><h1>Welcome</h1></span>
 	<br>
-	<span style="text-align: center;"><h3><?php echo $_SESSION['uname'];?></h3></span>
+	<span class="textc"><h3><?php echo $_SESSION['uname'];?></h3></span>
 	</div>
 	
 </div>

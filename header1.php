@@ -12,20 +12,27 @@ else{
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<header>
 		<div id="logo">
-			<a href="home.php"><img src="logo.png" style="height: 80px" alt="logo"></a>
+			<a href="home.php"><img src="logo.png" class="logo" alt="logo"></a>
 		</div>
-		<ul id="nav">
-			<li style="border-right: 1px solid #000000;"><a href="studentreg.php">Registration</a></li>
-			<li style="border-right: 1px solid #000000;"><a href="showAllStudents.php">Show</a></li>
-			<li><a href="logout.php">Logout</a></li>
-		</ul>
+		<nav>
+     		<div class="threeline">
+        		<div class="line"></div>
+        		<div class="line"></div>
+        		<div class="line"></div>
+      		</div>
+      <ul class="nav-links">
+        <li><a href="studentreg.php">Registration</a></li>
+		<li><a href="showAllStudents.php">Show</a></li>
+		<li><a href="logout.php">Logout</a></li>
+      </ul>
+    </nav>
 	</header>
 	
-
+	<script src="js/nav.js"></script>
 </body>
 </html>

@@ -13,72 +13,66 @@ require_once 'controller/studentInfo.php';
 $students = fetchAllStudents();
 
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title></title>
+ 
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 
-	<style>
-		.divt{
-			border:3px solid #000000;
-			border-radius: 10px; 
-			margin-top: 10px;
-			margin-bottom: 10px;
-			padding: auto;
-		}
-		.divt a{
-			color: #0000ff;
-		}
-		.divt td,th{
-			padding: 20px;
-			border-radius: 10px;
-		}
-	</style>
 </head>
 <body>
 
-<?php include('header1.php');?>
+	<?php include('header1.php');?>
 
-<div class="divt">
 
-	<span style="text-align: center;color: #e80000"><h1>All Students</h1></span>
+	<span class="textcenter textmain"><h1>Show All Students</h1></span>
+	<div class="textcenter">
+	<div class="main_internaldiv textleft fontsize160">
 
-	<form method="post" action="controller/findUser.php" style="text-align: center;">
+	<form method="post" action="controller/findUser.php" class="textcenter margin-bottom">
       
-      <span style="color: #0000ff;"><b>Search: </b></span><input placeholder="Enter the ID to search." type="text" name="id" required/>
+      <span class="textmain"><b>Search: </b></span><input placeholder="Enter the ID to search." type="text" name="id" required/>
       <input type="submit" name="submit" value="submit"/>
     </form>
 
-    <br>
-	<div style="margin: auto; font-size: 15px;padding: 10px;">
+   <table class="table">
+     <thead>
+     	 <th>ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Image</th>
+		<th>Action</th>
+     </thead>
+     <tbody>
+     	  <?php foreach ($students as $i => $student): ?>
+			<tr>
+				<td data-label="ID"><abbr title="Click here to see all full details"><a href="showStudent.php?id=<?php echo $student['id'] ?>"><span class="textmain"><?php echo $student['id'] ?></a></abbr></span></td>
 
-		<table border="2px" style="text-align: center;margin: auto; font-size: 20px; border-radius: 10px;">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Image</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach ($students as $i => $student): ?>
-					<tr>
-						<td><abbr title="Click here to see all full details"><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['id'] ?></a></abbr></td>
+				<td data-label="First Name"><?php echo $student['firstname'] ?></td>
+				<td data-label="Last Name"><?php echo $student['lastname'] ?></td>
+				<td data-label="Image"><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
+				<td data-label="Action">
+					<a href="editStudentinfo.php?id=<?php echo $student['id'] ?>">
+						<span class="textmain">EDIT</span></a>
+						<a href="controller/deleteStudent.php?id=<?php echo $student['id'] ?>">
+							<span class="textmain margin-left">DELETE</span></a>
+						</td>
+			</tr>
+		<?php endforeach; ?>
+     </tbody>
+   </table>
 
-						<td><?php echo $student['firstname'] ?></td>
-						<td><?php echo $student['lastname'] ?></td>
-						<td><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
-						<td><a href="editStudentinfo.php?id=<?php echo $student['id'] ?>"><span style="border: 1px solid #000000;padding: 10px; margin-right: 15px; border-radius: 5px;">Edit</span></a><a href="controller/deleteStudent.php?id=<?php echo $student['id'] ?>"><span style="border: 1px solid #000000; padding: 10px; border-radius: 5px;">Delete</span></a></td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-			
-		</table>
-	</div>
+   </div>
+
 </div>
 
+	
+
 <?php include('footer.php');?>
+
 </body>
 </html>
