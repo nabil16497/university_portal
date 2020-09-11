@@ -26,10 +26,22 @@ else{
         		<div class="line"></div>
       		</div>
       <ul class="nav-links">
-        <li><a href="studentreg.php">Student Registration</a></li>
-        <li><a href="facultyreg.php">Faculty Registration</a></li>
-		<li><a href="showAllStudents.php">Show Students</a></li>
-		<li><a href="showAllFacultys.php">Show Facultys</a></li>
+        <li><a href="">Registration</a>
+        	<div class="sub-nav-links">
+        		<ul>
+        			<li><a href="studentreg.php">Student Registration</a></li>
+        			<li><a href="facultyreg.php">Faculty Registration</a></li>
+        		</ul>
+        	</div>
+        </li>
+        <li><a href="">Show</a>
+        	<div class="sub-nav-links">
+        		<ul>
+        			<li><a href="showAllStudents.php">Show Students</a></li>
+					<li><a href="showAllFacultys.php">Show Facultys</a></li>
+				</ul>
+			</div>
+        </li>
 		<li><a href="logout.php">Logout</a></li>
       </ul>
     </nav>
@@ -38,3 +50,8 @@ else{
 	<script src="js/nav.js"></script>
 </body>
 </html>
+
+
+
+
+		

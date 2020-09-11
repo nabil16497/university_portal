@@ -25,7 +25,7 @@ header{
 	display: inline-block;
 	
     background: #2BAE66FF;
-	clear: both;
+    clear: both;
     width: 100%;
     box-shadow: 0px 8px 2px 1px rgba(0, 0, 0, .2);
     margin-bottom: 20px;
@@ -62,6 +62,38 @@ nav{
   text-decoration: none;
   font-size: 16px;
 }
+
+.sub-nav-links{
+  display: none;
+}
+
+
+.nav-links li:hover .sub-nav-links{
+  display: block;
+  position: absolute;
+  background: #2BAE66FF;
+  box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, .2);
+}
+.nav-links li:hover .sub-nav-links ul li {
+  
+  background: #2BAE66FF;
+  padding: 10px;
+  list-style-type: none;
+  border-bottom: 1px solid #ffffff;
+}
+.nav-links li:hover .sub-nav-links ul li:last-child{
+  border-bottom: none;
+}
+.nav-links li:hover .sub-nav-links ul li a{
+  text-decoration: none;
+
+}
+
+.nav-links li:hover .sub-nav-links ul li:hover{
+background: #2B8E66FF;
+}
+
+
 
 
 /*------------Table------------*/
@@ -170,10 +202,52 @@ nav{
 .margin-right{
 	margin-right: 20px;
 }
-
+/*--------Padding------*/
+.padding-top{
+  padding-top: 10px;
+}
+.padding-bottom{
+  padding-bottom: 10px;
+}
+.padding-left{
+  padding-left: 10px;
+}
+.padding-right{
+  margin-right: 10px;
+}
 /*-------link-------*/
 a{
 	text-decoration: none;
+}
+/*-------search-----*/
+
+.searchbox{
+
+  background: #2BAE66FF;
+  height: 40px;
+  border-radius: 40px;
+  margin: 10px;
+  padding-left: 10px;
+  padding-right: 10px; 
+  text-align: center;
+
+
+}
+
+.searchtext{
+  border:none;
+  background:none;
+  outline:none;
+  float: center;
+  padding: 0;
+  text-align: center;
+  color: #ffffff;
+  background:#2BAE66FF;
+  font-size: 15px;
+  line-height: 30px;
+  width: 100%;
+
+
 }
 
 
@@ -261,7 +335,7 @@ a{
 		padding-left: 50%;
 		text-align: right;
 		position: relative;
-    
+
 	}
 	.table td::before{
 		content: attr(data-label);

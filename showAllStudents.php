@@ -33,9 +33,10 @@ $students = fetchAllStudents();
 	<span class="textcenter textmain"><h1>Show All Students</h1></span>
 	<div class="textcenter">
 	<div class="main_internaldiv textleft fontsize160">
-      <div class="textcenter textmain margin-bottom">
-      <b>Search: </b>
-      <input placeholder="Enter ID to search." type="text" name="id" required/></div>
+	<div class="searchbox">
+
+	<input placeholder="Enter ID to search" class="searchtext" autocomplete="off" type="text" name="id" required/>
+	</div>
 
 
    <table class="table">
