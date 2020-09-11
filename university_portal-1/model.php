@@ -3,27 +3,6 @@
 require_once 'db_connect.php';
 
 
-function verify_user($uname,$pass){
-
-    $conn = db_conn();
-    $selectQuery = "SELECT * FROM `admin_info` WHERE id = '$uname' AND pass = '$pass'";
-    try{
-        $stmt = $conn->query($selectQuery);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if(!empty($rows))
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-
-
 function showAllStudents(){
 	$conn = db_conn();
     $selectQuery = 'SELECT * FROM `student_info` ';
@@ -36,37 +15,33 @@ function showAllStudents(){
     return $rows;
 }
 
-//new added
-function showAllFacultys(){
-    $conn = db_conn();
-    $selectQuery = 'SELECT * FROM `faculty_info` ';
-    try{
+//--------------------checking login--------------------------------------
+function login_verify($uname,$pass)
+{
+     $conn = db_conn();
+
+     $selectQuery = "SELECT *  FROM `student_info` WHERE id = '$uname' AND password = '$pass'";
+     try{
         $stmt = $conn->query($selectQuery);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $rows;
+       }
+     catch(PDOException $e)
+       {
+        echo  $e->getMessage();
+       }
+     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+     if(!empty($rows))
+      {
+        return true;
+      }
+    else{
+        return false;
+        }
+
 }
 
 function showStudent($id){
 	$conn = db_conn();
 	$selectQuery = "SELECT * FROM `student_info` where id = ?";
-
-    try {
-        $stmt = $conn->prepare($selectQuery);
-        $stmt->execute([$id]);
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    return $row;
-}
-
-function showFaculty($id){
-    $conn = db_conn();
-    $selectQuery = "SELECT * FROM `faculty_info` where id = ?";
 
     try {
         $stmt = $conn->prepare($selectQuery);
@@ -125,10 +100,10 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :program,
     return true;
 }
 
-//new added
+
 function addFaculty($data){
     $conn = db_conn();
-    $selectQuery = "INSERT into faculty_info (firstname, lastname, contact, email, gender, dob, dept, nationality, blood, image, address, password)
+    $selectQuery = "INSERT into faculty_info (firstname, lastname, contact, email, gender, dob, dept,nationality, blood, image, address, password)
 VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :nationality, :blood, :image, :address, :password)";
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -155,7 +130,6 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :national
     $conn = null;
     return true;
 }
-
 
 
 function updateStudent($id, $data){
@@ -186,7 +160,6 @@ function updateStudent($id, $data){
     return true;
 }
 
-//new added
 function updateFaculty($id, $data){
     $conn = db_conn();
     $selectQuery = "UPDATE `faculty_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?, `dob`=?, `dept`=?,`image`=?, `address`=? where `id` =?";
@@ -228,7 +201,6 @@ function deleteStudent($id){
     return true;
 }
 
-//new added
 function deleteFaculty($id){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `faculty_info` WHERE `id` = ?";

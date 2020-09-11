@@ -1,44 +1,37 @@
-<?php
-session_start();
-if(isset($_SESSION['uname'])){
-}
-
-else{
-
-	echo "<script>location.href='loginAdmin.php'</script>";
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+		td{
+			padding: 15px;
+		}
+	</style>
 </head>
 <body>
 
 
 <?php include('header1.php');?>
 
-
-	<span class="textcenter textmain"><h1>Student Registration</h1></span>
-	<div class="textcenter">
-	<div class="main_internaldiv textleft fontsize160">
+<div style="border:3px solid #000000;border-radius: 10px; margin-top: 10px;margin-bottom: 10px;padding: auto;">
+	<span style="text-align: center;color: #e80000"><h1>Student Registration</h1></span>
+	<div style="margin: auto; font-size: 15px;padding: 10px;">
 		<form action="controller/createStudent.php" method="POST" enctype="multipart/form-data">
-			<table>
-				<tr>
-					<td colspan="2" class="textcenter">
-						<img src= "userdp.png" alt="Profile Picture" class="userimage" ;><br>
-  					<input type="file" name="file">
-  					<br>
-					</td>
-				</tr>
+			<table style="padding: 10px;">
 				
+
 				<tr>
 					<td>
 						First Name:
 					</td>
 					<td>
-						<input type="text" name="firstname">
+						<input type="text" name="firstname"style="font-size: 15px;">
+					</td>
+					<td rowspan="11">
+
+					<img src= "userdp.png" alt="Profile Picture" style="max-height: 200px ; margin-bottom: 10px;"><br>
+  					<input type="file" name="file">
+  					<span style="color: #ff0000">
 					</td>
 
 				</tr>
@@ -48,7 +41,7 @@ else{
 						Last Name:
 					</td>
 					<td>
-						<input type="text" name="lastname">
+						<input type="text" name="lastname"style="font-size: 15px;">
 					</td>
 					
 				</tr>
@@ -58,7 +51,7 @@ else{
 						Date of Birth:
 					</td>
 					<td>
-						<input type="Date" name="dob">
+						<input type="Date" name="dob"style="font-size: 15px;">
 					</td>
 				</tr>
 
@@ -77,7 +70,7 @@ else{
 						Contact:
 					</td>
 					<td>
-						<input type="text" name="contact">
+						<input type="text" name="contact"style="font-size: 15px;">
 					</td>
 				</tr>
 
@@ -86,7 +79,7 @@ else{
 						Email:
 					</td>
 					<td>
-						<input type="text" name="email">
+						<input type="text" name="email"style="font-size: 15px;">
 					</td>
 				</tr>
 
@@ -95,7 +88,7 @@ else{
 						Nationality:
 					</td>
 					<td>
-						<select name="nationality">
+						<select name="nationality"style="font-size: 15px;">
 						<option value=""></option>	
 						<option value="Bangladesh">Bangladesh</option>
 						</select>
@@ -107,7 +100,7 @@ else{
 						Address:
 					</td>
 					<td>
-						<textarea name="address" rows="8" cols="20" placeholder="Please Write Your Address Here-"></textarea>
+						<textarea name="address" rows="6" cols="50" placeholder="Please Write Your Address Here-"></textarea>
 					</td>
 				</tr>
 
@@ -116,7 +109,7 @@ else{
 						Blood Group:
 					</td>
 					<td>
-						<select name="blood">
+						<select name="blood"style="font-size: 15px;">
 						<option value=""></option>	
 						<option value="A+ve">A+ve</option>
 						<option value="A+ve">B+ve</option>
@@ -135,7 +128,7 @@ else{
 						Department:
 					</td>
 					<td>
-						<input type="text" name="department">
+						<input type="text" name="department"style="font-size: 15px;">
 					</td>
 				</tr>
 
@@ -144,7 +137,7 @@ else{
 						Program:
 					</td>
 					<td>
-						<input type="text" name="program">
+						<input type="text" name="program"style="font-size: 15px;">
 					</td>
 				</tr>
 				<tr>
@@ -156,19 +149,15 @@ else{
 						<input type="Password" name="password">
 					</td>
 				</tr>
-				
 			</table>
-			<br>
+
 			<hr>
-			<input type="submit" value="submit" name="submit" >
+			<input type="submit" value="submit" name="submit" style ="margin-bottom: 10px; margin-left: 25px; font-size: 15px;">
 
 		</form>
 	</div>
-
-</div>
-
 	
-
+</div>
 <?php include('footer.php');?>
 
 </body>

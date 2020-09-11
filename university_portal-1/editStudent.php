@@ -1,13 +1,5 @@
 <?php 
 
-session_start();
-if(isset($_SESSION['uname'])){
-}
-
-else{
-
-  echo "<script>location.href='loginAdmin.php'</script>";
-}
 require_once 'controller/studentInfo.php';
 $student = fetchStudent($_GET['id']);
 

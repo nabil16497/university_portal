@@ -1,7 +1,7 @@
 <?php  
-require_once 'controller/studentInfo.php';
+require_once 'controller/facultyInfo.php';
 
-$students = fetchAllStudents();
+$facultys = fetchAllFaculty();
 
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@ $students = fetchAllStudents();
 
 <div class="divt">
 
-	<span style="text-align: center;color: #e80000"><h1>All Students</h1></span>
+	<span style="text-align: center;color: #e80000"><h1>All Facultys</h1></span>
 
 	<form method="post" action="controller/findUser.php" style="text-align: center;">
       
@@ -54,14 +54,14 @@ $students = fetchAllStudents();
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($students as $i => $student): ?>
+				<?php foreach ($facultys as $i => $faculty): ?>
 					<tr>
-						<td><abbr title="Click here to see all full details"><a href="showStudent.php?id=<?php echo $student['id'] ?>"><?php echo $student['id'] ?></a></abbr></td>
+						<td><abbr title="Click here to see all full details"><a href="showFaculty.php?id=<?php echo $faculty['id'] ?>"><?php echo $faculty['id'] ?></a></abbr></td>
 
-						<td><?php echo $student['firstname'] ?></td>
-						<td><?php echo $student['lastname'] ?></td>
-						<td><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
-						<td><a href="editStudentinfo.php?id=<?php echo $student['id'] ?>"><span style="border: 1px solid #000000;padding: 10px; margin-right: 15px; border-radius: 5px;">Edit</span></a><a href="controller/deleteStudent.php?id=<?php echo $student['id'] ?>"><span style="border: 1px solid #000000; padding: 10px; border-radius: 5px;">Delete</span></a></td>
+						<td><?php echo $faculty['firstname'] ?></td>
+						<td><?php echo $faculty['lastname'] ?></td>
+						<td><img width="100px" src="uploads/<?php echo $faculty['image'] ?>" alt="<?php echo $faculty['firstname'] ?>"></td>
+						<td><a href="editFacultyinfo.php?id=<?php echo $faculty['id'] ?>"><span style="border: 1px solid #000000;padding: 10px; margin-right: 15px; border-radius: 5px;">Edit</span></a><a href="controller/deleteFaculty.php?id=<?php echo $faculty['id'] ?>"><span style="border: 1px solid #000000; padding: 10px; border-radius: 5px;">Delete</span></a></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

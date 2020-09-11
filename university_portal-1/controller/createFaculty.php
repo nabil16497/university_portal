@@ -112,6 +112,7 @@ require_once '../model.php';
     $data["address"] = $_POST["address"];
   }
 
+  
 
 
   $file = $_FILES['file'];
@@ -157,7 +158,7 @@ require_once '../model.php';
   $data['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ["cost" => 12]);
 
 
-  if(empty($fnameerror)&& empty($lnameerror) && empty($doberror) && empty($gendererror) && empty($contacterror)&& empty($emailerror) && empty($nationalityerror) && empty($addresserror) && empty($blooderror)&& empty($depterror) && empty($pperror))
+  if(empty($fnameerror)&& empty($lnameerror) && empty($doberror) && empty($gendererror) && empty($contacterror)&& empty($emailerror) && empty($nationalityerror) && empty($addresserror) && empty($blooderror)&& empty($depterror)&& empty($pperror))
  {
 
   if (addFaculty($data)) {
@@ -171,7 +172,7 @@ require_once '../model.php';
 
   else{
 
-  $errorm = " | ".$fnameerror."  |  ".$lnameerror."  |  ".$doberror."  |  ".$gendererror."  |  ".$contacterror."  |  ".$emailerror."  |  ".$nationalityerror."  |  ".$addresserror."  |  ".$blooderror."  |  ".$depterror."  |  "." | ".$pperror." | ";
+  $errorm = " | ".$fnameerror."  |  ".$lnameerror."  |  ".$doberror."  |  ".$gendererror."  |  ".$contacterror."  |  ".$emailerror."  |  ".$nationalityerror."  |  ".$addresserror."  |  ".$blooderror."  |  ".$depterror."  |  ".$pperror." | ";
     echo "<script>alert('Error-".$errorm."'); window.location.href='../facultyreg.php';</script>"; 
 
  

@@ -1,40 +1,21 @@
-<?php 
-if(isset($_SESSION['uname'])){
-}
-
-else{
-
-	echo "<script>location.href='loginAdmin.php'</script>";
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
 </head>
 <body>
 	<header>
 		<div id="logo">
-			<a href="home.php"><img src="logo.png" class="logo" alt="logo"></a>
+			<a href="home.php"><img src="logo.png" style="height: 80px" alt="logo"></a>
 		</div>
-		<nav>
-     		<div class="threeline">
-        		<div class="line"></div>
-        		<div class="line"></div>
-        		<div class="line"></div>
-      		</div>
-      <ul class="nav-links">
-        <li><a href="studentreg.php">Student Registration</a></li>
-        <li><a href="facultyreg.php">Faculty Registration</a></li>
-		<li><a href="showAllStudents.php">Show Students</a></li>
-		<li><a href="showAllFacultys.php">Show Facultys</a></li>
-		<li><a href="logout.php">Logout</a></li>
-      </ul>
-    </nav>
+		<ul id="nav">
+			<li style="border-right: 1px solid #000000;"><a href="studentreg.php">Registration</a></li>
+			<li style="border-right: 1px solid #000000;"><a href="showAllStudents.php">Show</a></li>
+			<li><a href="">_______</a></li>
+		</ul>
 	</header>
 	
-	<script src="js/nav.js"></script>
+
 </body>
 </html>

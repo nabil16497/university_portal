@@ -3,9 +3,8 @@
 session_start();
 
 if (isset($_SESSION['uname'])) {
-	session_destroy();
-	echo "<script>location.href='login.php'</script>";
-	
+	echo "<h2>Welcome to product page</h2>";
+	echo "<br><a href='welcome.php'>back to welcome</a>";
 }
 
 else{

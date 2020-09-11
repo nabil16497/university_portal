@@ -1,13 +1,4 @@
 <?php  
-
-session_start();
-if(isset($_SESSION['uname'])){
-}
-
-else{
-
-	echo "<script>location.href='loginAdmin.php'</script>";
-}
 require_once 'controller/facultyInfo.php';
 
 $faculty = fetchFaculty($_GET['id']);
@@ -17,17 +8,26 @@ $faculty = fetchFaculty($_GET['id']);
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+		.divt{
+			border:3px solid #000000;
+			border-radius: 10px; 
+			margin-top: 10px;
+			margin-bottom: 10px;
+			padding: auto;
+
+		}
+		
+	</style>
 </head>
 <body>
 <?php include('header1.php');?>
-<span class="textcenter textmain"><h1>Show All Facultys</h1></span>
-	<div class="textcenter">
-	<div class="main_internaldiv textleft fontsize160">
-		<span class="textcenter textmain"><h6>Detailed Information about Faculty; ID- <?php echo $faculty['id'];  ?></h6></span><br>
+<div class="divt">
+	<span style="text-align: center;color: #e80000"><h1>Full Details</h1></span>
+	<div style="margin: auto; font-size: 15px;padding: 10px;">
 		
-		<table class="table">
-			<thead>
+		<table border="2px" style="text-align: center;margin: auto; font-size: 20px;">
+			<tr>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Date of Birth</th>
@@ -39,19 +39,19 @@ $faculty = fetchFaculty($_GET['id']);
 				<th>Department</th>
 				<th>Image</th>
 
-			</thead>
-			<tbody>
-				<td data-label="First Name"><?php echo $faculty['firstname'] ?></td>
-				<td data-label="Last Name"><?php echo $faculty['lastname'] ?></td>
-				<td data-label="Dtae of Birth"><?php echo $faculty['dob'] ?></td>
-				<td data-label="Contact"><?php echo $faculty['contact'] ?></td>
-				<td data-label="Email"><?php echo $faculty['email'] ?></td>
-				<td data-label="Nationality"><?php echo $faculty['nationality'] ?></td>
-				<td data-label="Address"><?php echo $faculty['address'] ?></td>
-				<td data-label="Blood Group"><?php echo $faculty['blood'] ?></td>
-				<td data-label="Department"><?php echo $faculty['dept'] ?></td>
-				<td data-label="Image"><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $faculty['firstname'] ?>"></td>
-			</tbody>
+			</tr>
+			<tr>
+				<td><?php echo $faculty['firstname'] ?></td>
+				<td><?php echo $faculty['lastname'] ?></td>
+				<td><?php echo $faculty['dob'] ?></td>
+				<td><?php echo $faculty['contact'] ?></td>
+				<td><?php echo $faculty['email'] ?></td>
+				<td><?php echo $faculty['nationality'] ?></td>
+				<td><?php echo $faculty['address'] ?></td>
+				<td><?php echo $faculty['blood'] ?></td>
+				<td><?php echo $faculty['dept'] ?></td>
+				<td><img width="100px" src="uploads/<?php echo $faculty['image'] ?>" alt="<?php echo $faculty['firstname'] ?>"></td>
+			</tr>
 
 		</table>
 	</div>
