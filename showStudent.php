@@ -17,26 +17,17 @@ $student = fetchStudent($_GET['id']);
 <html>
 <head>
 	<title></title>
-	<style>
-		.divt{
-			border:3px solid #000000;
-			border-radius: 10px; 
-			margin-top: 10px;
-			margin-bottom: 10px;
-			padding: auto;
-
-		}
-		
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <?php include('header1.php');?>
-<div class="divt">
-	<span style="text-align: center;color: #e80000"><h1>Full Details</h1></span>
-	<div style="margin: auto; font-size: 15px;padding: 10px;">
+<span class="textcenter textmain"><h1>Show All Students</h1></span>
+	<div class="textcenter">
+	<div class="main_internaldiv textleft fontsize160">
+		<span class="textcenter textmain"><h6>Detailed Information about Student; ID- <?php echo $student['id'];  ?></h6></span><br>
 		
-		<table border="2px" style="text-align: center;margin: auto; font-size: 20px;">
-			<tr>
+		<table class="table">
+			<thead>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Date of Birth</th>
@@ -49,20 +40,20 @@ $student = fetchStudent($_GET['id']);
 				<th>Program</th>
 				<th>Image</th>
 
-			</tr>
-			<tr>
-				<td><?php echo $student['firstname'] ?></td>
-				<td><?php echo $student['lastname'] ?></td>
-				<td><?php echo $student['dob'] ?></td>
-				<td><?php echo $student['contact'] ?></td>
-				<td><?php echo $student['email'] ?></td>
-				<td><?php echo $student['nationality'] ?></td>
-				<td><?php echo $student['address'] ?></td>
-				<td><?php echo $student['blood'] ?></td>
-				<td><?php echo $student['dept'] ?></td>
-				<td><?php echo $student['program'] ?></td>
-				<td><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
-			</tr>
+			</thead>
+			<tbody>
+				<td data-label="First Name"><?php echo $student['firstname'] ?></td>
+				<td data-label="Last Name"><?php echo $student['lastname'] ?></td>
+				<td data-label="Dtae of Birth"><?php echo $student['dob'] ?></td>
+				<td data-label="Contact"><?php echo $student['contact'] ?></td>
+				<td data-label="Email"><?php echo $student['email'] ?></td>
+				<td data-label="Nationality"><?php echo $student['nationality'] ?></td>
+				<td data-label="Address"><?php echo $student['address'] ?></td>
+				<td data-label="Blood Group"><?php echo $student['blood'] ?></td>
+				<td data-label="Department"><?php echo $student['dept'] ?></td>
+				<td data-label="Program"><?php echo $student['program'] ?></td>
+				<td data-label="Image"><img width="100px" src="uploads/<?php echo $student['image'] ?>" alt="<?php echo $student['firstname'] ?>"></td>
+			</tbody>
 
 		</table>
 	</div>

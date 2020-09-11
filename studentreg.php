@@ -12,11 +12,6 @@ else{
 <html>
 <head>
 	<title></title>
-	<style>
-		td{
-			padding: 15px;
-		}
-	</style>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -32,8 +27,9 @@ else{
 			<table>
 				<tr>
 					<td colspan="2" class="textcenter">
-						<img src= "userdp.png" alt="Profile Picture" class="userimage" ;"><br>
+						<img src= "userdp.png" alt="Profile Picture" class="userimage" ;><br>
   					<input type="file" name="file">
+  					<br>
 					</td>
 				</tr>
 				
@@ -162,7 +158,7 @@ else{
 				</tr>
 				
 			</table>
-
+			<br>
 			<hr>
 			<input type="submit" value="submit" name="submit" >
 
