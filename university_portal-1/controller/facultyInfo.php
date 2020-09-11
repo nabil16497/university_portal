@@ -2,8 +2,8 @@
 
 require_once 'model.php';
 
-function fetchAllFaculty(){
-	return showAllFaculty();
+function fetchAllFacultys(){
+	return showAllFacultys();
 
 }
 function fetchFaculty($id){
