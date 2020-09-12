@@ -35,14 +35,14 @@ else{
 
 			<div class="form">
 					<input type="text" name="firstname" autocomplete="off" required />
-					<label for="firstname" class="label-name">
+					<label for="lastname" class="label-name">
 					<span class="content-name">Last Name</span>
 					</label>
 			</div>
 
 			<div class="form">
 					<input type="Date" name="dob" autocomplete="off" required />
-					<label for="firstname" class="label-name">
+					<label for="dob" class="label-name">
 					<span class="content-name">Date of Birth</span>
 					</label>
 			</div>
@@ -53,21 +53,21 @@ else{
 						<option value="1">Male</option>
 						<option value="2">Female</option>
 					</select> 
-					<label for="firstname" class="label-name">
+					<label for="gender" class="label-name">
 					<span class="content-name">Gender</span>
 					</label>
 			</div>
 
 			<div class="form">
 					<input type="text" name="contact" autocomplete="off" maxlength="15" size="15" required />
-					<label for="firstname" class="label-name">
+					<label for="contact" class="label-name">
 					<span class="content-name">Contact</span>
 					</label>
 			</div>			
 
 			<div class="form">
 					<input type="text" name="email" autocomplete="off" required />
-					<label for="firstname" class="label-name">
+					<label for="email" class="label-name">
 					<span class="content-name">Email</span>
 					</label>
 			</div>
@@ -77,14 +77,14 @@ else{
 						<option></option>	
 						<option value="Bangladesh">Bangladesh</option>
 						</select>
-					<label for="firstname" class="label-name">
+					<label for="nationality" class="label-name">
 					<span class="content-name">Nationality</span>
 					</label>
 			</div>
 
 			<div class="form">
 					<input type="text" autocomplete="off" name="address" required />
-					<label for="firstname" class="label-name">
+					<label for="address" class="label-name">
 					<span class="content-name">Address</span>
 					</label>
 			</div>
@@ -101,35 +101,34 @@ else{
 						<option value="A+ve">AB-ve</option>
 						<option value="A+ve">O-ve</option>
 					</select>
-					<label for="firstname" class="label-name">
+					<label for="blood" class="label-name">
 					<span class="content-name">Blood Group</span>
 					</label>
 			</div>
 
 			<div class="form">
 					<input type="text" name="department" autocomplete="off" required />
-					<label for="firstname" class="label-name">
+					<label for="department" class="label-name">
 					<span class="content-name">Department</span>
 					</label>
 			</div>
 
 			<div class="form">
 					<input type="text" name="program" autocomplete="off" required />
-					<label for="firstname" class="label-name">
+					<label for="program" class="label-name">
 					<span class="content-name">Program</span>
 					</label>
 			</div>
 
 			<div class="form">
 					<input type="Password" name="password" autocomplete="off" required />
-					<label for="firstname" class="label-name">
+					<label for="password" class="label-name">
 					<span class="content-name">Password</span>
 					</label>
 			</div>
 			<img src= "userdp.png" alt="Profile Picture" class="userimage" ;><br>
   			<input type="file" name="file">
   			<br>
-			<br>
 			<hr>
 			<input type="submit" value="submit" name="submit" >
 
