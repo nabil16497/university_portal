@@ -21,6 +21,7 @@ else{
 
 
 	<span class="textcenter textmain"><h1>Student Registration</h1></span>
+	<br>
 	<div class="textcenter">
 	<div class="main_internaldiv textleft fontsize160">
 		<form action="controller/createStudent.php" method="POST" enctype="multipart/form-data">
@@ -126,8 +127,8 @@ else{
 					</label>
 			</div>
 			<img src= "userdp.png" alt="Profile Picture" class="userimage" ;><br>
-  					<input type="file" name="file">
-  					<br>
+  			<input type="file" name="file">
+  			<br>
 			<br>
 			<hr>
 			<input type="submit" value="submit" name="submit" >
