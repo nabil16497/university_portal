@@ -160,7 +160,7 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :national
 
 function updateStudent($id, $data){
     $conn = db_conn();
-    $selectQuery = "UPDATE `student_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?, `dob`=?, `dept`=?, `program`=?,`image`=?, `address`=? where `id` =?";
+    $selectQuery = "UPDATE `student_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?, `dob`=?, `gender`=?,`dept`=?, `program`=?,`image`=?, `address`=? where `id` =?";
 
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -171,6 +171,7 @@ function updateStudent($id, $data){
             $data['contact'],
             $data['email'],
             $data['dob'],
+            $data['gender'],
             $data['dept'],
             $data['program'],
             $data['image'],
@@ -189,12 +190,11 @@ function updateStudent($id, $data){
 //new added
 function updateFaculty($id, $data){
     $conn = db_conn();
-    $selectQuery = "UPDATE `faculty_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?,`gender`=?, `dob`=?, `dept`=?, nationality`=?, `blood`=?, `image`=?, `address`=? where `id` =?";
+    $selectQuery = "UPDATE `faculty_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?, `gender`=?, `dob`=?, `dept`=?,`image`=?, `address`=? where `id` =?";
 
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([
-
 
             $data['firstname'],
             $data['lastname'],
@@ -203,8 +203,6 @@ function updateFaculty($id, $data){
             $data['gender'],
             $data['dob'],
             $data['dept'],
-            $data['nationality'],
-            $data['blood'],
             $data['image'],
             $data['address'],
             $id
