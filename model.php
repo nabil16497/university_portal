@@ -189,18 +189,22 @@ function updateStudent($id, $data){
 //new added
 function updateFaculty($id, $data){
     $conn = db_conn();
-    $selectQuery = "UPDATE `faculty_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?, `dob`=?, `dept`=?,`image`=?, `address`=? where `id` =?";
+    $selectQuery = "UPDATE `faculty_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?,`gender`=?, `dob`=?, `dept`=?, nationality`=?, `blood`=?, `image`=?, `address`=? where `id` =?";
 
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([
 
+
             $data['firstname'],
             $data['lastname'],
             $data['contact'],
             $data['email'],
+            $data['gender'],
             $data['dob'],
             $data['dept'],
+            $data['nationality'],
+            $data['blood'],
             $data['image'],
             $data['address'],
             $id

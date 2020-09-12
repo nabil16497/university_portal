@@ -34,7 +34,7 @@ else{
 			</div>
 
 			<div class="form">
-					<input type="text" name="firstname" autocomplete="off" required />
+					<input type="text" name="lastname" autocomplete="off" required />
 					<label for="lastname" class="label-name">
 					<span class="content-name">Last Name</span>
 					</label>
@@ -49,9 +49,9 @@ else{
 
 			<div class="form">
 					<select name="gender" required />
-						<option></option>	
-						<option value="1">Male</option>
-						<option value="2">Female</option>
+						<option selected disabled hidden></option>	
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
 					</select> 
 					<label for="gender" class="label-name">
 					<span class="content-name">Gender</span>
@@ -74,7 +74,7 @@ else{
 
 			<div class="form">
 					<select name="nationality" required />
-						<option></option>	
+						<option selected disabled hidden></option>
 						<option value="Bangladesh">Bangladesh</option>
 						</select>
 					<label for="nationality" class="label-name">
@@ -91,7 +91,7 @@ else{
 
 			<div class="form">
 					<select name="blood" required />
-						<option></option>	
+						<option selected disabled hidden></option>
 						<option value="A+ve">A+ve</option>
 						<option value="A+ve">B+ve</option>
 						<option value="A+ve">AB+ve</option>
@@ -128,6 +128,7 @@ else{
 			</div>
 			<img src= "userdp.png" alt="Profile Picture" class="userimage" ;><br>
   			<input type="file" name="file">
+  			<br>
   			<br>
 			<hr>
 			<input type="submit" value="submit" name="submit" >

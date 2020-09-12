@@ -128,7 +128,7 @@ nav{
 }
 
 .logocenter{
-	display: block;
+    display: block;
     margin: 0 auto;
 }
 
@@ -188,11 +188,13 @@ background: #2B8E66FF;
 	border-collapse: collapse;
 }
 
+
 .table td,.table th{
   padding:12px 15px;
   border:1px solid #ddd;
   text-align: center;
   font-size:16px;
+
 }
 
 .table th{
@@ -220,7 +222,7 @@ background: #2B8E66FF;
 	padding: 2%; 
 	border-radius: 10px;
 	display: inline-block;
-  width: 50%;
+  width: 80%;
 }
 
 .red_text{
@@ -336,7 +338,9 @@ a{
 
 
 }
-
+.width100{
+  width: 100%;
+}
 
 /*-------Responsive------------*/
 

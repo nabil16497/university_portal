@@ -26,7 +26,7 @@ else{
         		<div class="line"></div>
       		</div>
       <ul class="nav-links">
-        <li><a href="">Registration</a>
+        <li><a href="#">Registration</a>
         	<div class="sub-nav-links">
         		<ul>
         			<li><a href="studentreg.php">Student Registration</a></li>
@@ -34,7 +34,7 @@ else{
         		</ul>
         	</div>
         </li>
-        <li><a href="">Show</a>
+        <li><a href="#">Show</a>
         	<div class="sub-nav-links">
         		<ul>
         			<li><a href="showAllStudents.php">Show Students</a></li>
