@@ -291,6 +291,7 @@ background: #2B8E66FF;
 .margin-right{
 	margin-right: 20px;
 }
+
 /*--------Padding------*/
 .padding-top{
   padding-top: 10px;
@@ -342,7 +343,7 @@ a{
   width: 100%;
 }
 
-/*-------Responsive------------*/
+/*-------Responsive---------------------------------------------*/
 
 @media screen and (max-width: 768px) {
 
