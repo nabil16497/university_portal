@@ -22,7 +22,7 @@ $facultys = fetchAllFacultys();
   <title></title>
  
   <link rel="stylesheet" type="text/css" href="css/style.css">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -36,7 +36,7 @@ $facultys = fetchAllFacultys();
       <div class="textcenter textmain margin-bottom">
       <div class="searchbox">
 
-	<input placeholder="Enter ID to search" class="searchtext" autocomplete="off" type="text" name="id" required/>
+	<input placeholder="Enter ID to search" class="searchtext" autocomplete="off" type="text" id="search" name="search">
 	</div>
 
 
@@ -73,5 +73,24 @@ $facultys = fetchAllFacultys();
 
 <?php include('footer.php');?>
 
+<script>
+	$("search").on("keyup", function(){
+		var value =$(this),val();
+		$("table tr").each(function(records)){
+			if(records !=0)
+			{
+				var id=$(this).find("td:first").text();
+				if(id,indexOf(value) != 0)
+				{
+					$(this).hide();
+				}
+				else
+				{
+					$(this).show();
+				}
+			}
+		}
+	});
+</script>
 </body>
 </html>

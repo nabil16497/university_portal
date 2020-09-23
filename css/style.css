@@ -13,6 +13,9 @@ body{
   font-family: sans-serif;
 }
 
+/*--------form-------*/
+
+
 .form{
   width: 95%;
   position: relative;
@@ -50,6 +53,16 @@ body{
   border-bottom: 1px solid #000;
 
 }
+
+.form input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+.form input[type=date]:focus::-webkit-datetime-edit {
+    color: #2BAE66FF !important;
+}
+
+
+}
 .form label::after{
   content: "";
   position: absolute;
@@ -60,6 +73,7 @@ body{
   border-bottom: 3px solid #2BAE66FF;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
+
 }
 .content-name{
   position: absolute;
@@ -291,6 +305,7 @@ background: #2B8E66FF;
 .margin-right{
 	margin-right: 20px;
 }
+
 /*--------Padding------*/
 .padding-top{
   padding-top: 10px;
@@ -342,7 +357,7 @@ a{
   width: 100%;
 }
 
-/*-------Responsive------------*/
+/*-------Responsive---------------------------------------------*/
 
 @media screen and (max-width: 768px) {
 
@@ -364,7 +379,7 @@ a{
     cursor: pointer;
     right: 5%;
     transform: translate(0%, 50%);
-    z-index: 2;
+    z-index: 3;
   }
 
   .nav-links {
@@ -377,11 +392,13 @@ a{
     -webkit-clip-path: circle(120px at 100% -20%);
     transition: all .6s ease-out;
     pointer-events: none;
+    z-index: 2;
   }
   .nav-links.open {
     clip-path: circle(1100px at 90% -15%);
     -webkit-clip-path: circle(1100px at 90% -15%);
     pointer-events: all;
+    z-index: 2;
   }
   .landing {
     flex-direction: column;

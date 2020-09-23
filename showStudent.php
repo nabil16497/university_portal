@@ -18,6 +18,7 @@ $student = fetchStudent($_GET['id']);
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	
 </head>
 <body>
 <?php include('header1.php');?>
@@ -59,5 +60,9 @@ $student = fetchStudent($_GET['id']);
 	</div>
 </div>
 <?php include('footer.php');?>
+
+<script>
+	
+</script>
 </body>
 </html>
