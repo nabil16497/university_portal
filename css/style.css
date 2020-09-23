@@ -61,6 +61,13 @@ body{
     color: #2BAE66FF !important;
 }
 
+.form input[type=time]:required:invalid::-webkit-time-edit {
+    color: transparent;
+}
+.form input[type=time]:focus::-webkit-time-edit {
+    color: #2BAE66FF !important;
+}
+
 
 }
 .form label::after{

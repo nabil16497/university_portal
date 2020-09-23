@@ -31,6 +31,7 @@ else{
         		<ul>
         			<li><a href="studentreg.php">Student Registration</a></li>
         			<li><a href="facultyreg.php">Faculty Registration</a></li>
+                    <li><a href="coursereg.php">Course Registration</a></li>
         		</ul>
         	</div>
         </li>

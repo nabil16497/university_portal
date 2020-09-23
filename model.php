@@ -126,6 +126,41 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :program,
     return true;
 }
 
+
+
+function addCourse($data){
+    $conn = db_conn();
+
+    
+    $selectQuery = "INSERT INTO `section`(`course_id`, `coursename`, `day1`, `starttime1`, `endtime1`, `day2`, `starttime2`, `endtime2`, `credit`, `section`)
+VALUES (:course_id, :coursename, :day1, :starttime1, :endtime1, :day2, :starttime2, :endtime2, :credit, :section)";
+    
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            ':course_id' => $data['courseid'],
+            ':coursename'  => $data['coursename'],
+            ':day1'  => $data['day1'],
+            ':starttime1'  => $data['starttime1'],
+            ':endtime1'  => $data['endtime1'],
+            ':day2'  => $data['day2'],
+            ':starttime2'  => $data['starttime2'],
+            ':endtime2'  => $data['endtime2'],
+            ':credit' => $data['credit'],
+            ':section'  => $data['section']
+
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+
+
 //new added
 function addFaculty($data){
     $conn = db_conn();
