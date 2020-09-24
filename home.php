@@ -11,18 +11,19 @@ if(isset($_SESSION['uname'])){
 else{
 	if(!empty($_POST['uname']) || !empty($_POST['pass']))
 	{
-		if (verify_user($_POST['uname'],$_POST['pass'])) {
+		if(verify_user($_POST['uname'],$_POST['pass'],$_POST['type'])) {
 			$_SESSION['uname'] = $_POST['uname'];
+			$_SESSION['type'] = $_POST['type'];
 			echo "<script>location.href='home.php'</script>";
 		}
 		else{
 			echo "<script>alert('username or password incorrect!')</script>";
-			echo "<script>location.href='loginAdmin.php'</script>";
+			echo "<script>location.href='login.php'</script>";
 		}
 	}
 
 	else{
-		echo "<script>location.href='loginAdmin.php'</script>";
+		echo "<script>location.href='login.php'</script>";
 	}
 }
 

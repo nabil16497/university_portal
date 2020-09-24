@@ -1,3 +1,14 @@
+<?php 
+
+session_start();
+if(isset($_SESSION['uname']) && $_SESSION['type'] == "admin"){
+}
+
+else{
+
+  echo "<script>location.href='login.php'</script>";
+}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

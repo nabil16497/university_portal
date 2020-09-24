@@ -3,10 +3,21 @@
 require_once 'db_connect.php';
 
 
-function verify_user($uname,$pass){
+function verify_user($uname,$pass,$type){
 
     $conn = db_conn();
+
+    if($type == "admin"){
     $selectQuery = "SELECT * FROM `admin_info` WHERE id = '$uname' AND pass = '$pass'";
+    }
+
+    elseif($type == "student"){
+    $selectQuery = "SELECT * FROM `student_info` WHERE id = '$uname' AND password = '$pass'";
+    }
+    elseif($type == "faculty"){
+    $selectQuery = "SELECT * FROM `faculty_info` WHERE id = '$uname' AND password = '$pass'";
+    }
+
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){

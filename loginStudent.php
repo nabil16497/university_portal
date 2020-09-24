@@ -14,7 +14,7 @@
 
 			<form action="home.php" method="post">
 
-				<h4>Login <br><span class="lowoptext">(Admin)</span></h2>
+				<h4>Login <br><span class="lowoptext">(Student)</span></h2>
 
 				<div class="form">
 					<input type="text" name="uname" autocomplete="off" required />
@@ -28,8 +28,8 @@
 					<span class="content-name">Password</span>
 					</label>
 			</div>
-			<input type="hidden" name="type" value="admin">
-			
+			<input type="hidden" name="type" value="student">
+
 			<input type="submit" name="login" value="Login"></td>
 				</tr>
 		</form>
