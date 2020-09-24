@@ -38,11 +38,7 @@ else{
         </li>
         <li><a href="#">Show</a>
         	<div class="sub-nav-links">
-        		<ul>
-        			<li>
-                <a href="showStudent.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'] ?></a>
-              </li>
-				</ul>
+        		
 			</div>
         </li>
 		<li><a href="logout.php"><abbr title="Logout"><i style='font-size:24px' class='fas'>&#xf2f5;</i></abbr></a></li>

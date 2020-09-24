@@ -60,6 +60,18 @@ function showAllFacultys(){
     return $rows;
 }
 
+function showAllCourses(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `section` ';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
 function showStudent($id){
 	$conn = db_conn();
 	$selectQuery = "SELECT * FROM `student_info` where id = ?";
@@ -79,6 +91,22 @@ function showStudent($id){
 function showFaculty($id){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `faculty_info` where id = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+}
+
+
+function showCourse($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where id = ?";
 
     try {
         $stmt = $conn->prepare($selectQuery);
@@ -264,6 +292,41 @@ function updateFaculty($id, $data){
     return true;
 }
 
+
+function updateCourse($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `section` SET `course_id`=?,`coursename`=?,`day1`=?,`starttime1`=?,`endtime1`=?,`day2`=?,`starttime2`=?,`endtime2`=?,`credit`=?,`section`=?,`room1`=?,`room2`=? WHERE `id`=?";
+
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+            $data['courseid'],
+            $data['coursename'],
+            $data['day1'],
+            $data['starttime1'],
+            $data['endtime1'],
+            $data['day2'],
+            $data['starttime2'],
+            $data['endtime2'],
+            $data['credit'],
+            $data['section'],
+            $data['room1'],
+            $data['room2'],
+            $id
+
+        ]);
+
+
+        
+        
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
 function deleteStudent($id){
 	$conn = db_conn();
     $selectQuery = "DELETE FROM `student_info` WHERE `id` = ?";
@@ -278,10 +341,26 @@ function deleteStudent($id){
     return true;
 }
 
+
+
 //new added
 function deleteFaculty($id){
     $conn = db_conn();
     $selectQuery = "DELETE FROM `faculty_info` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+}
+
+function deleteCourse($id){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `section` WHERE `id` = ?";
     try{
         $stmt = $conn->prepare($selectQuery);
         $stmt->execute([$id]);

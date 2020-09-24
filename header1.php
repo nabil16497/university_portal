@@ -42,7 +42,8 @@ else{
         	<div class="sub-nav-links">
         		<ul>
         			<li><a href="showAllStudents.php">Show Students</a></li>
-					<li><a href="showAllFacultys.php">Show Facultys</a></li>
+	     				<li><a href="showAllFacultys.php">Show Facultys</a></li>
+              <li><a href="showAllCourses.php">Show Courses</a></li>
 				</ul>
 			</div>
         </li>
