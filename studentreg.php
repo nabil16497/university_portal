@@ -1,11 +1,12 @@
-<?php
+<?php 
+
 session_start();
-if(isset($_SESSION['uname'])){
+if(isset($_SESSION['uname']) && $_SESSION['type'] == "admin"){
 }
 
 else{
 
-	echo "<script>location.href='loginAdmin.php'</script>";
+  echo "<script>location.href='login.php'</script>";
 }
 ?>
 <!DOCTYPE html>
@@ -127,7 +128,8 @@ else{
 					</label>
 			</div>
 			<img src= "userdp.png" alt="Profile Picture" class="userimage" ;><br>
-  			<input type="file" name="file">
+  			<input type="file" id="file" name="file">
+  			<label for="file" class="filelabel">Select</label>
   			<br>
   			<br>
 			<hr>

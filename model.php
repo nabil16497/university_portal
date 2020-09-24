@@ -3,10 +3,21 @@
 require_once 'db_connect.php';
 
 
-function verify_user($uname,$pass){
+function verify_user($uname,$pass,$type){
 
     $conn = db_conn();
+
+    if($type == "admin"){
     $selectQuery = "SELECT * FROM `admin_info` WHERE id = '$uname' AND pass = '$pass'";
+    }
+
+    elseif($type == "student"){
+    $selectQuery = "SELECT * FROM `student_info` WHERE id = '$uname' AND password = '$pass'";
+    }
+    elseif($type == "faculty"){
+    $selectQuery = "SELECT * FROM `faculty_info` WHERE id = '$uname' AND password = '$pass'";
+    }
+
     try{
         $stmt = $conn->query($selectQuery);
     }catch(PDOException $e){
@@ -125,6 +136,43 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :program,
     $conn = null;
     return true;
 }
+
+
+
+function addCourse($data){
+    $conn = db_conn();
+
+    
+    $selectQuery = "INSERT INTO `section`(`course_id`, `coursename`, `day1`, `starttime1`, `endtime1`, `day2`, `starttime2`, `endtime2`, `credit`, `section`, `room1`, `room2`)
+VALUES (:course_id, :coursename, :day1, :starttime1, :endtime1, :day2, :starttime2, :endtime2, :credit, :section, :room1, :room2)";
+    
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            ':course_id' => $data['courseid'],
+            ':coursename'  => $data['coursename'],
+            ':day1'  => $data['day1'],
+            ':starttime1'  => $data['starttime1'],
+            ':endtime1'  => $data['endtime1'],
+            ':day2'  => $data['day2'],
+            ':starttime2'  => $data['starttime2'],
+            ':endtime2'  => $data['endtime2'],
+            ':credit' => $data['credit'],
+            ':section'  => $data['section'],
+            ':room1'  => $data['room1'],
+            ':room2'  => $data['room2']
+
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+
 
 //new added
 function addFaculty($data){

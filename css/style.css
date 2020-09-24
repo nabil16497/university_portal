@@ -4,6 +4,9 @@
     box-sizing: border-box;
 
 }
+
+
+
 body{
 	margin: 0;
 	background-color: #FCF6F5FF;
@@ -11,6 +14,19 @@ body{
   justify-content: space-around;
   flex-direction: column;
   font-family: sans-serif;
+
+
+  
+}
+
+
+footer{
+  clear: both;
+  background: #000000;
+  text-align: center;
+  color: #ffffff;
+  opacity: .7;
+  margin-top: 40px;
 }
 
 /*--------form-------*/
@@ -62,6 +78,8 @@ body{
 }
 
 
+
+
 }
 .form label::after{
   content: "";
@@ -107,17 +125,86 @@ body{
 }
 
 
-
-
-footer{
-	clear: both;
-	background: #000000;
-	text-align: center;
-	color: #ffffff;
-	margin-top: 40px;
-	opacity: .7;
+input[type=submit]{
+  color: #2BAE66FF;
+  border: 1px solid #2BAE66FF;
+  background: none;
+  padding: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+.btn{
+  color: #2BAE66FF;
+  border: 1px solid #2BAE66FF;
+  background: none;
+  padding: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
 }
 
+.btn:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+}
+
+input[type=file]{
+  display: none;
+}
+
+.filelabel{
+
+  color: #2BAE66FF;
+  border: 1px solid #2BAE66FF;
+  background: none;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.back{
+  color: #e80000;
+  border: 1px solid #e80000;
+  background: none;
+  padding: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input[type=submit]:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+}
+
+input[type=file]:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+
+}
+
+.filelabel:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+}
+
+.back:hover{
+  color: #FCF6F5FF;
+  background: #e80000;
+}
 
 /*--------header-------*/
 header{
@@ -200,6 +287,7 @@ background: #2B8E66FF;
 .table{
 	width: 100%;
 	border-collapse: collapse;
+
 }
 
 
@@ -237,6 +325,7 @@ background: #2B8E66FF;
 	border-radius: 10px;
 	display: inline-block;
   width: 80%;
+
 }
 
 .red_text{
@@ -353,9 +442,11 @@ a{
 
 
 }
+
 .width100{
   width: 100%;
 }
+
 
 /*-------Responsive---------------------------------------------*/
 
@@ -395,8 +486,8 @@ a{
     z-index: 2;
   }
   .nav-links.open {
-    clip-path: circle(1100px at 90% -15%);
-    -webkit-clip-path: circle(1100px at 90% -15%);
+    clip-path: circle(1500px at 90% -15%);
+    -webkit-clip-path: circle(1500px at 90% -15%);
     pointer-events: all;
     z-index: 2;
   }
@@ -455,6 +546,16 @@ a{
 		font-weight: bold;
 		text-align: left;
 	}
+  .shtable td::before{
+    content: none;
+    position: absolute;
+    left:0;
+    width: 50%;
+    padding-left:15px;
+    font-size:16px;
+    font-weight: bold;
+    text-align: left;
+  }
 }
 
 

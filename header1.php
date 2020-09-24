@@ -1,10 +1,11 @@
 <?php 
-if(isset($_SESSION['uname'])){
+
+if(isset($_SESSION['uname']) && $_SESSION['type'] == "admin"){
 }
 
 else{
 
-	echo "<script>location.href='loginAdmin.php'</script>";
+  echo "<script>location.href='login.php'</script>";
 }
 ?>
 
@@ -12,7 +13,9 @@ else{
 <html>
 <head>
 	<title></title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
 </head>
 <body>
 	<header>
@@ -31,6 +34,7 @@ else{
         		<ul>
         			<li><a href="studentreg.php">Student Registration</a></li>
         			<li><a href="facultyreg.php">Faculty Registration</a></li>
+                    <li><a href="coursereg.php">Course Registration</a></li>
         		</ul>
         	</div>
         </li>
@@ -42,7 +46,7 @@ else{
 				</ul>
 			</div>
         </li>
-		<li><a href="logout.php">Logout</a></li>
+		<li><a href="logout.php"><abbr title="Logout"><i style='font-size:24px' class='fas'>&#xf2f5;</i></abbr></a></li>
       </ul>
     </nav>
 	</header>
