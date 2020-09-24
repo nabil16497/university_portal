@@ -29,10 +29,18 @@ $faculty = fetchFaculty($_GET['id']);
   <div class="textcenter">
   <div class="main_internaldiv textleft fontsize160">
     <form action="controller/updateFaculty.php" method="POST" enctype="multipart/form-data">
+            <div class="image">
+      <img src= '<?php echo $faculty['image']; ?>' alt="Profile Picture" class="userimage">
+      </div>
+      <br>
 
-      <img src= <?php echo $faculty['image']; ?> alt="Profile Picture" class="userimage"><br>
-            <input type="file" name="file">
-            <br>
+      
+        <input type="file" id="file" name="file">
+          <label for="file" class="filelabel" >Select</label>
+
+        <br>        
+        
+        <br>
 
       <div class="form">
           <input value="<?php echo $faculty['firstname'] ?>" type="text" name="firstname" autocomplete="off" required />

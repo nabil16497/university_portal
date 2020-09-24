@@ -157,8 +157,8 @@ require_once '../model.php';
 	}
 
 
-	$data['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ["cost" => 12]);
-
+	#$data['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, ["cost" => 12]);
+  $data['password'] = $_POST['password'];
 
 	if(empty($fnameerror)&& empty($lnameerror) && empty($doberror) && empty($gendererror) && empty($contacterror)&& empty($emailerror) && empty($nationalityerror) && empty($addresserror) && empty($blooderror)&& empty($depterror) && empty($programerror) && empty($pperror))
  {

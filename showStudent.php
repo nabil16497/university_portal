@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-if(isset($_SESSION['uname']) && $_SESSION['type'] == "admin"){
+if(isset($_SESSION['uname'])){
 }
 
 else{
@@ -11,6 +11,13 @@ else{
 require_once 'controller/studentInfo.php';
 
 $student = fetchStudent($_GET['id']);
+if($_SESSION['type'] == "admin")
+{
+	$student = fetchStudent($_GET['id']);
+}
+else{
+	$student = fetchStudent($_SESSION['uname']);
+}
 
 ?>
 <!DOCTYPE html>

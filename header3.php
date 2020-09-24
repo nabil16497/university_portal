@@ -39,9 +39,7 @@ else{
         <li><a href="#">Show</a>
         	<div class="sub-nav-links">
         		<ul>
-        			<li>
-                <a href="showStudent.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'] ?></a>
-              </li>
+        			<li><a href="showFaculty.php?id=<?php echo "$_SESSION['uname']";?>"><?php echo "$_SESSION['uname']"; ?></a></li>
 				</ul>
 			</div>
         </li>

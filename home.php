@@ -38,6 +38,7 @@ else{
  ?>
 
 
+
  <!DOCTYPE html>
 <html>
 <head>
@@ -48,15 +49,26 @@ else{
 <body>
 
 
-<?php include('header1.php');?>
+<?php
+if($_SESSION['type'] == "admin")
+{
+	include('header1.php');
+}
+elseif($_SESSION['type'] == "student"){
+	include('header2.php');
+}
+elseif($_SESSION['type'] == "faculty"){
+	include('header3.php');	
+}
+?>
 
 
 <div class="textcenter">
 	<div class="main_internaldiv textleft fontsize160">
-<span class="red_text, textc">
+<span class="textcenter textmain">
 	<h1>Welcome</h1></span>
 <br>
-<span class="textc"><h3><?php echo $_SESSION['uname'];?></h3></span>
+<span class="textcenter textmain"><h3><?php echo $_SESSION['uname'];?></h3></span>
 </div>
 <div></div>
 
