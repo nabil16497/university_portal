@@ -68,6 +68,7 @@ footer{
   pointer-events: none;
   border-bottom: 1px solid #000;
 
+
 }
 
 .form input[type=date]:required:invalid::-webkit-datetime-edit {
@@ -79,20 +80,16 @@ footer{
 
 
 
-
+input[type=checkbox]{
+  appearance:none;
+  height: 15px;
+  width: 15px;
+  background-color: #D4D4D4;
+  border-radius: 2px;
+  cursor: pointer;
 }
-.form label::after{
-  content: "";
-  position: absolute;
-  left: 0px;
-  bottom: -1px;
-  height: 100%;
-  width: 100%;
-  border-bottom: 3px solid #2BAE66FF;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
 
-}
+
 .content-name{
   position: absolute;
   bottom: 5px;
@@ -205,6 +202,79 @@ input[type=file]:hover{
   color: #FCF6F5FF;
   background: #e80000;
 }
+
+
+
+/* Customize the label (the container) */
+.container {
+  
+  position: relative;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  transition: 0.5s;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  background-color: #C4C4C4;
+  transition: 0.6s;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #2BAE6655;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2BAE66FF;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 
 /*--------header-------*/
 header{
@@ -446,6 +516,11 @@ a{
 .width100{
   width: 100%;
 }
+
+
+
+
+
 
 
 /*-------Responsive---------------------------------------------*/
