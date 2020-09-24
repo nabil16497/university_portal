@@ -91,9 +91,9 @@ function showFaculty($id){
     return $row;
 }
 
-function searchUser($id){
+function searchStudent($data){
     $conn = db_conn();
-    $selectQuery = "SELECT * FROM `student_info` WHERE id LIKE '%$id%'";
+    $selectQuery = "SELECT * FROM `student_info` WHERE firstname LIKE '%$data%'";
 
     
     try{

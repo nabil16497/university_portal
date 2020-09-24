@@ -30,11 +30,13 @@ $students = fetchAllStudents();
 	<span class="textcenter textmain"><h1>Show All Students</h1></span>
 	<div class="textcenter">
 	<div class="main_internaldiv textleft fontsize160">
+	
+	<form onsubmit="return validateMyForm()">
 	<div class="searchbox">
-
-	<input id="search" placeholder="Enter ID to search" class="searchtext" autocomplete="off" type="text" name="search" required/>
+	<input id="search" placeholder="Enter ID to search" class="searchtext" autocomplete="off" type="text" name="search" oninput="checkSearch()" required/>
+	<button onclick="Search()">search</button>
 	</div>
-
+	</form>
 
    <table class="table" id="table">
      <thead>
@@ -71,10 +73,7 @@ $students = fetchAllStudents();
 
 <?php include('footer.php');?>
 
-<script>
-	
-
-</script>
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>
