@@ -59,12 +59,9 @@ require_once '../model.php';
 
   if (empty($_POST["gender"])) {
     $gendererror = "Select gender";
-  } else {
-    if($_POST["gender"] == 1)
-    {$data["gender"] = 1;}
-    else{
-      $data["gender"] = 0;
-    }
+  }
+  else{
+    $data["gender"] = $_POST['gender'];
   }
   if(empty($_POST["contact"])){
     $contacterror = "You Must Enter Your Contact Number.";

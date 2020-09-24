@@ -4,6 +4,11 @@
     box-sizing: border-box;
 
 }
+
+html{
+  height: 100%;
+}
+
 body{
 	margin: 0;
 	background-color: #FCF6F5FF;
@@ -11,7 +16,23 @@ body{
   justify-content: space-around;
   flex-direction: column;
   font-family: sans-serif;
+
+
+  
 }
+
+
+footer{
+  clear: both;
+  background: #000000;
+  text-align: center;
+  color: #ffffff;
+  opacity: .7;
+  margin-top: 40px;
+}
+
+/*--------form-------*/
+
 
 .form{
   width: 95%;
@@ -50,6 +71,23 @@ body{
   border-bottom: 1px solid #000;
 
 }
+
+.form input[type=date]:required:invalid::-webkit-datetime-edit {
+    color: transparent;
+}
+.form input[type=date]:focus::-webkit-datetime-edit {
+    color: #2BAE66FF !important;
+}
+
+.form input[type=time]:required:invalid::-webkit-time-edit {
+    color: transparent;
+}
+.form input[type=time]:focus::-webkit-time-edit {
+    color: #2BAE66FF !important;
+}
+
+
+}
 .form label::after{
   content: "";
   position: absolute;
@@ -60,6 +98,7 @@ body{
   border-bottom: 3px solid #2BAE66FF;
   transform: translateX(-100%);
   transition: transform 0.3s ease;
+
 }
 .content-name{
   position: absolute;
@@ -93,16 +132,6 @@ body{
 }
 
 
-
-
-footer{
-	clear: both;
-	background: #000000;
-	text-align: center;
-	color: #ffffff;
-	margin-top: 40px;
-	opacity: .7;
-}
 
 
 /*--------header-------*/
@@ -186,6 +215,7 @@ background: #2B8E66FF;
 .table{
 	width: 100%;
 	border-collapse: collapse;
+
 }
 
 
@@ -223,6 +253,7 @@ background: #2B8E66FF;
 	border-radius: 10px;
 	display: inline-block;
   width: 80%;
+
 }
 
 .red_text{
@@ -339,9 +370,7 @@ a{
 
 
 }
-.width100{
-  width: 100%;
-}
+
 
 /*-------Responsive---------------------------------------------*/
 
@@ -365,7 +394,7 @@ a{
     cursor: pointer;
     right: 5%;
     transform: translate(0%, 50%);
-    z-index: 2;
+    z-index: 3;
   }
 
   .nav-links {
@@ -378,11 +407,13 @@ a{
     -webkit-clip-path: circle(120px at 100% -20%);
     transition: all .6s ease-out;
     pointer-events: none;
+    z-index: 2;
   }
   .nav-links.open {
     clip-path: circle(1100px at 90% -15%);
     -webkit-clip-path: circle(1100px at 90% -15%);
     pointer-events: all;
+    z-index: 2;
   }
   .landing {
     flex-direction: column;
@@ -439,6 +470,16 @@ a{
 		font-weight: bold;
 		text-align: left;
 	}
+  .shtable td::before{
+    content: none;
+    position: absolute;
+    left:0;
+    width: 50%;
+    padding-left:15px;
+    font-size:16px;
+    font-weight: bold;
+    text-align: left;
+  }
 }
 
 

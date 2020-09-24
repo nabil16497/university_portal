@@ -41,14 +41,16 @@ else{
 
 <?php include('header1.php');?>
 
-<div class="main_div">
-	<div class="main_internaldiv">
-	<span class="red_text, textc"><h1>Welcome</h1></span>
-	<br>
-	<span class="textc"><h3><?php echo $_SESSION['uname'];?></h3></span>
-	</div>
-	
+
+<div class="textcenter">
+	<div class="main_internaldiv textleft fontsize160">
+<span class="red_text, textc">
+	<h1>Welcome</h1></span>
+<br>
+<span class="textc"><h3><?php echo $_SESSION['uname'];?></h3></span>
 </div>
+<div></div>
+
 <?php include('footer.php');?>
 
 </body>

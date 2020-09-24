@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
 	$data["lastname"] = $_POST["lastname"];
 	$data["email"] = ($_POST["email"]);
 	$data["dob"]=$_POST["dob"];
+	$data["gender"]=$_POST["gender"];
 	$data["contact"] = $_POST["contact"];
 	$data["nationality"] = $_POST["nationality"];
 	$data["dept"] = $_POST["department"];
