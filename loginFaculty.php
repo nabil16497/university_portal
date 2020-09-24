@@ -29,7 +29,7 @@
 					</label>
 			</div>
 			<label class="container">Remember Me
-				<input type="checkbox" checked="checked">
+				<input type="checkbox" name="remember" value="1">
 				<span class="checkmark"></span>
 			</label>
 			<input type="hidden" name="type" value="faculty">

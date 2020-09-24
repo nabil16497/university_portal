@@ -122,7 +122,8 @@ else{
 					</label>
 			</div>
 			<img src= "userdp.png" alt="Profile Picture" class="userimage" ;><br>
-  			<input type="file" name="file">
+  			<input type="file" id="file" name="file">
+  			<label for="file" class="filelabel">Select</label>
   			<br>
   			<br>
 			<hr>
