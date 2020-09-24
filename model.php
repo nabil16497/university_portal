@@ -132,8 +132,8 @@ function addCourse($data){
     $conn = db_conn();
 
     
-    $selectQuery = "INSERT INTO `section`(`course_id`, `coursename`, `day1`, `starttime1`, `endtime1`, `day2`, `starttime2`, `endtime2`, `credit`, `section`)
-VALUES (:course_id, :coursename, :day1, :starttime1, :endtime1, :day2, :starttime2, :endtime2, :credit, :section)";
+    $selectQuery = "INSERT INTO `section`(`course_id`, `coursename`, `day1`, `starttime1`, `endtime1`, `day2`, `starttime2`, `endtime2`, `credit`, `section`, `room1`, `room2`)
+VALUES (:course_id, :coursename, :day1, :starttime1, :endtime1, :day2, :starttime2, :endtime2, :credit, :section, :room1, :room2)";
     
     try{
         $stmt = $conn->prepare($selectQuery);
@@ -148,7 +148,9 @@ VALUES (:course_id, :coursename, :day1, :starttime1, :endtime1, :day2, :starttim
             ':starttime2'  => $data['starttime2'],
             ':endtime2'  => $data['endtime2'],
             ':credit' => $data['credit'],
-            ':section'  => $data['section']
+            ':section'  => $data['section'],
+            ':room1'  => $data['room1'],
+            ':room2'  => $data['room2']
 
         ]);
     }catch(PDOException $e){

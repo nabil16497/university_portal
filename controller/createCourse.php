@@ -22,6 +22,8 @@ require_once '../model.php';
   $data['day2'] = $_POST['day2'] ;
   $data['starttime2'] = $_POST['starttime2'] ;
   $data['endtime2'] = $_POST['endtime2'] ;
+  $data['room1'] = $_POST['room1'] ;
+  $data['room2'] = $_POST['room2'] ;
   
 
 

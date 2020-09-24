@@ -79,10 +79,19 @@ else{
 					</label>
 			</div>
 
+
+
 			<div class="form">
 					<input type="time" name="endtime1" autocomplete="off" required />
 					<label for="endtime1" class="label-name">
 					<span class="content-name">End Time (Day 1)</span>
+					</label>
+			</div>
+
+			<div class="form">
+					<input type="text" name="room1" autocomplete="off" required />
+					<label for="room1" class="label-name">
+					<span class="content-name">Room No. (Day 1)</span>
 					</label>
 			</div>
 
@@ -115,7 +124,12 @@ else{
 					</label>
 			</div>
 
-			
+			<div class="form">
+					<input type="text" name="room2" autocomplete="off" required />
+					<label for="room2" class="label-name">
+					<span class="content-name">Room No. (Day 2)</span>
+					</label>
+			</div>			
   			
   			<br>
 			<hr>
