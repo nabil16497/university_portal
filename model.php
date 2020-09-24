@@ -72,6 +72,21 @@ function showAllCourses(){
     return $rows;
 }
 
+
+function showAllRegistration(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT registration.id, registration.student_id, section.coursename, section.section FROM registration INNER JOIN section ON registration.section_id=section.id;';
+
+
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
 function showStudent($id){
 	$conn = db_conn();
 	$selectQuery = "SELECT * FROM `student_info` where id = ?";
@@ -119,6 +134,7 @@ function showCourse($id){
     return $row;
 }
 
+
 function searchStudent($data){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `student_info` WHERE firstname LIKE '%$data%'";
@@ -133,6 +149,27 @@ function searchStudent($data){
     return $rows;
 }
 
+function registration($data, $faculty, $course, $semester){
+    $conn = db_conn();
+    $selectQuery = "INSERT into registration (semester_id, student_id, faculty_id, section_id)
+VALUES (:semester_id, :student_id, :faculty_id, :section_id)";
+foreach($data as $student){
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            ':semester_id' => $semester,
+            ':student_id'  => $student,
+            ':faculty_id'  => $faculty,
+            ':section_id'  => $course
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    }
+    $conn = null;
+    return true;
+}
 
 function addStudent($data){
 	$conn = db_conn();
@@ -370,4 +407,19 @@ function deleteCourse($id){
     $conn = null;
 
     return true;
+}
+
+function deleteRegistration($id){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `registration` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+
 }

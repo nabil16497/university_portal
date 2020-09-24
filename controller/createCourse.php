@@ -28,7 +28,7 @@ require_once '../model.php';
 
 
  	if (addCourse($data)) {
-  		echo "<script>alert('New Course Added to the database')";
+  		echo "<script>alert('New Course Added to the database'); window.location.href='../coursereg.php';</script>";
 
   	
  	
