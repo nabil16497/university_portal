@@ -1,12 +1,12 @@
-<?php  
+<?php 
 
 session_start();
-if(isset($_SESSION['uname'])){
+if(isset($_SESSION['uname']) && $_SESSION['type'] == "admin"){
 }
 
 else{
 
-	echo "<script>location.href='loginAdmin.php'</script>";
+  echo "<script>location.href='login.php'</script>";
 }
 require_once 'controller/studentInfo.php';
 

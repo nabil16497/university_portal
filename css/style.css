@@ -5,9 +5,7 @@
 
 }
 
-html{
-  height: 100%;
-}
+
 
 body{
 	margin: 0;
@@ -79,12 +77,7 @@ footer{
     color: #2BAE66FF !important;
 }
 
-.form input[type=time]:required:invalid::-webkit-time-edit {
-    color: transparent;
-}
-.form input[type=time]:focus::-webkit-time-edit {
-    color: #2BAE66FF !important;
-}
+
 
 
 }
@@ -132,7 +125,86 @@ footer{
 }
 
 
+input[type=submit]{
+  color: #2BAE66FF;
+  border: 1px solid #2BAE66FF;
+  background: none;
+  padding: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+.btn{
+  color: #2BAE66FF;
+  border: 1px solid #2BAE66FF;
+  background: none;
+  padding: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
 
+.btn:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+}
+
+input[type=file]{
+  display: none;
+}
+
+.filelabel{
+
+  color: #2BAE66FF;
+  border: 1px solid #2BAE66FF;
+  background: none;
+  padding: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.back{
+  color: #e80000;
+  border: 1px solid #e80000;
+  background: none;
+  padding: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.8s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input[type=submit]:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+}
+
+input[type=file]:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+
+}
+
+.filelabel:hover{
+  color: #FCF6F5FF;
+  background: #2BAE66FF;
+}
+
+.back:hover{
+  color: #FCF6F5FF;
+  background: #e80000;
+}
 
 /*--------header-------*/
 header{
@@ -371,6 +443,10 @@ a{
 
 }
 
+.width100{
+  width: 100%;
+}
+
 
 /*-------Responsive---------------------------------------------*/
 
@@ -410,8 +486,8 @@ a{
     z-index: 2;
   }
   .nav-links.open {
-    clip-path: circle(1100px at 90% -15%);
-    -webkit-clip-path: circle(1100px at 90% -15%);
+    clip-path: circle(1500px at 90% -15%);
+    -webkit-clip-path: circle(1500px at 90% -15%);
     pointer-events: all;
     z-index: 2;
   }
