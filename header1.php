@@ -46,7 +46,7 @@ else{
 	     				<li><a href="showAllFacultys.php">Show Facultys</a></li>
               <li><a href="showAllCourses.php">Show Courses</a></li>
               <li><a href="showAllRegistration.php">Registration</a></li>
-              <li><a href="showStudentResult.php">Show Results</a></li>
+              
 				</ul>
 			</div>
         </li>
