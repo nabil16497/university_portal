@@ -12,10 +12,13 @@ $conn = db_conn();
         echo $e->getMessage();
     }
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    foreach ($rows as $key => $value) {
+    	echo $value['firstname']."<br>";
+    }
+   # array_push($json, $rows);
 
-    array_push($json, $rows);
-
-    echo json_encode($json);
+    #echo json_encode($json);
     
 
 ?>

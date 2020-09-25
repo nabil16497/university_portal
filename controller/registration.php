@@ -3,7 +3,11 @@ require_once '../model.php';
 
 
 
+if(!isset($_POST['reg-student'])){
 
+  echo "<script>alert('Select Students'); window.location.href='registration3.php';</script>";
+
+}
 
 
 	

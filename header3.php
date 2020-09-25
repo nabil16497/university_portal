@@ -37,7 +37,7 @@ else{
           </div>
         </li>
         <li><a href="showFaculty.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'];?></a>
-          <li><a href="showStudentResult.php">Show Results</a></li>
+          <li><a href="showStudentResult.php"></a></li>
           <div class="sub-nav-links">
             
       </div>

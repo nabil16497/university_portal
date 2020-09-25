@@ -1,112 +1,74 @@
-<?php
-session_start();
-if(isset($_SESSION['uname'])){
-}
-
-else{
-
-    echo "<script>location.href='loginAdmin.php'</script>";
-}
-
-require_once 'controller/studentInfo.php';
-
-$students = fetchAllStudents();
-
-?>
-<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style >    
-  h1{
-    color:red;
-  }
-</style>
-<title> </title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/fc1.css">
-</head>
-<body>
-   <?php include('header2.php');?>
-  <div class="main_div">
-<div class="main_internaldiv">
- 
-<div >  
- <div>
-<main class="l1">
-    
-<header>
-    
-    <div class="call12">
-     <p1>Advance Database management system[F]</p1>
-       </div>
-     <div class="a0">
-    <main class="l2">
-         <div>
-        <img src="Test.png" alt="picture of a feculty" style="width:40px;height:60px;">
-        </div>
-        <div>
-        <p2>Rezwan Ahmed</p2><br>
-        <p3>Email:rezwan@aiub.edu</p3><br>
-        <p4>Feculty</p4>
-        </div>
-
-     </main>
-     </div>
-  
-      
-</header>
-
-   <div class="a1">Time:</div>
-   <div class="a2">Class Type:</div>
-   <div class="a3">Room No:</div>
-
-</main>
-</div>
-<div class="main">
-  <div class="design">
-      </div>
-
-<div class="M3-bar ">
-  <button class=" MI-button" onclick="openCity('TSF')">TSF</button>
-  <button class=" MI-button" onclick="openCity('Notes')">Notes</button>
-  <button class=" MI-button" onclick="openCity('Notices')">Notices</button>
-</div>
-
-<div id="TSF" class="w3-container city">
-  <h2>TSF</h2>
-  <p>Here will be TSF</p>
-  
-
-</div>
-
-<div id="Notes" class="w3-container city" style="display:none">
-  <h2>Notes</h2>
-  <p>Here will be notes</p> 
-</div>
-
-<div id="Notices" class="w3-container city" style="display:none">
-  <h2>Notices</h2>
-  <p>here will be notices</p>
-</div>
-</div>
-
 <script>
-function openCity(cityName) {
-  var i;
-  var x = document.getElementsByClassName("city");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
+function showResult(str) {
+  if (str.length==0) {
+    document.getElementById("livesearch").innerHTML="";
+    document.getElementById("livesearch").style.border="0px";
+    return;
   }
-  document.getElementById(cityName).style.display = "block";  
+  var xmlhttp=new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {
+      document.getElementById("livesearch").innerHTML=this.responseText;
+      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    }
+  }
+  xmlhttp.open("GET","livesearch.php?q="+str,true);
+  xmlhttp.send();
 }
 </script>
+</head>
+<body>
 
-</div>
+<form>
+<input type="text" size="30" onkeyup="showResult(this.value)">
+<div id="livesearch"></div>
+</form>
+<?php
+$xmlDoc=new DOMDocument();
+$xmlDoc->load("links.xml");
 
-</div>
-</div>
-<?php include('footer.php');?>
+$x=$xmlDoc->getElementsByTagName('link');
 
+//get the q parameter from URL
+$q=$_GET["q"];
+
+//lookup all links from the xml file if length of q>0
+if (strlen($q)>0) {
+  $hint="";
+  for($i=0; $i<($x->length); $i++) {
+    $y=$x->item($i)->getElementsByTagName('title');
+    $z=$x->item($i)->getElementsByTagName('url');
+    if ($y->item(0)->nodeType==1) {
+      //find a link matching the search text
+      if (stristr($y->item(0)->childNodes->item(0)->nodeValue,$q)) {
+        if ($hint=="") {
+          $hint="<a href='" .
+          $z->item(0)->childNodes->item(0)->nodeValue .
+          "' target='_blank'>" .
+          $y->item(0)->childNodes->item(0)->nodeValue . "</a>";
+        } else {
+          $hint=$hint . "<br /><a href='" .
+          $z->item(0)->childNodes->item(0)->nodeValue .
+          "' target='_blank'>" .
+          $y->item(0)->childNodes->item(0)->nodeValue . "</a>";
+        }
+      }
+    }
+  }
+}
+
+// Set output to "no suggestion" if no hint was found
+// or to the correct values
+if ($hint=="") {
+  $response="no suggestion";
+} else {
+  $response=$hint;
+}
+
+//output the response
+echo $response;
+?>
 </body>
 </html>

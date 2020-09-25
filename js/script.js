@@ -7,10 +7,6 @@ $('#search').keyup(function(){
 		success:function(data){
 			$('#searched').html(data);
 			
-			$('#searched').html(result);
-
-
-			
 		}
 	});
 });

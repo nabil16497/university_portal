@@ -9,6 +9,11 @@ else{
   echo "<script>location.href='login.php'</script>";
 }
 
+if(!isset($_POST['reg-course'])){
+
+	echo "<script>alert('Select a Course.'); window.location.href='registration1.php';</script>";
+
+}
 require_once 'controller/facultyInfo.php';
 
 $facultys = fetchAllFacultys();

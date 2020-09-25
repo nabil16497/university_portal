@@ -10,15 +10,13 @@ else{
 }
 require_once 'controller/facultyInfo.php';
 
-$faculty = fetchFaculty($_GET['id']);
-if($_SESSION['type'] == "admin")
-{
+if($_SESSION['type'] == "admin"){
 	$faculty = fetchFaculty($_GET['id']);
 }
-else{
+
+elseif($_SESSION['type'] == "faculty"){
 	$faculty = fetchFaculty($_SESSION['uname']);
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +26,15 @@ else{
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<?php include('header1.php');?>
+	<?php
+	if($_SESSION['type'] == "admin"){
+		include('header1.php');
+	}
+
+	elseif($_SESSION['type'] == "faculty"){
+		include('header3.php');
+	}
+	?>
 <span class="textcenter textmain"><h1>Show All Facultys</h1></span>
 	<div class="textcenter">
 	<div class="main_internaldiv textleft fontsize160">
