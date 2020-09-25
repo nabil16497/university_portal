@@ -14,7 +14,7 @@ $conn = db_conn();
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     foreach ($rows as $key => $value) {
-    	echo $value['firstname']."<br>";
+    	echo $value['firstname'].", ".$value['lastname']." (ID- ".$value['id'].")"."<br>";
     }
    # array_push($json, $rows);
 

@@ -29,7 +29,7 @@ else{
         		<div class="line"></div>
       		</div>
       <ul class="nav-links">
-        <li><a href="#">________</a>
+        <li><a href="showStudentResult.php">Show Results</a>
           <div class="sub-nav-links">
             <ul>
               

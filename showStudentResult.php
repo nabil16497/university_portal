@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-if(isset($_SESSION['uname']) && $_SESSION['type'] == "admin"){
+if(isset($_SESSION['uname']) && $_SESSION['type'] == "faculty"){
 }
 
 else{
@@ -28,7 +28,7 @@ $results = fetchAllStudentResult();
 </head>
 <body>
 
-	<?php include('header1.php');?>
+	<?php include('header3.php');?>
 
 
 	<span class="textcenter textmain"><h1>All Student Results</h1></span>
