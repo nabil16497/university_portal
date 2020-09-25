@@ -516,3 +516,79 @@ function deleteRegistration($id){
     return true;
 
 }
+
+//new added
+function updateResult($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `registration` SET `semester_id`=?, `student_id`=?, `faculty_id `=?, `section_id`=?, `midterm_mark`=?, `finalterm_mark`=?,`total_marks`=?, `final_grade`=?";
+
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            $data['semester_id'],
+            $data['student_id'],
+            $data['faculty_id'],
+            $data['section_id'],
+            $data['midterm_mark'],
+            $data['finalterm_mark'],
+            $data['total_marks'],
+            $data['final_grade'],
+            $id
+
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+
+
+//new
+
+function deleteResult($id){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `registration` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+}
+
+
+
+//new added
+function showStudentResult(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `registration` ';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+function showResult($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `registration` where id = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+}
