@@ -312,12 +312,14 @@ nav{
   align-items: center;
   margin-left: auto;
 
+
 }
 
 .nav-links li a {
   color: #FCF6F5FF;
   text-decoration: none;
   font-size: 16px;
+
 }
 
 .sub-nav-links{
@@ -330,6 +332,7 @@ nav{
   position: absolute;
   background: #2BAE66FF;
   box-shadow: 8px 8px 8px 1px rgba(0, 0, 0, .2);
+  z-index: 3;
 }
 .nav-links li:hover .sub-nav-links ul li {
   

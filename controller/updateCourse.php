@@ -2,17 +2,9 @@
 require_once '../model.php';
 
 
+if (isset($_POST['submit'])) {
 
-
-
-
-	
-	if(isset($_POST['submit'])) {
-
-  
-
-
-  $data['courseid'] = $_POST['courseid'] ;
+ $data['courseid'] = $_POST['courseid'] ;
   $data['coursename'] = $_POST['coursename'] ;
   $data['section'] = $_POST['section'] ;
   $data['credit'] = $_POST['credit'] ;
@@ -24,38 +16,20 @@ require_once '../model.php';
   $data['endtime2'] = $_POST['endtime2'] ;
   $data['room1'] = $_POST['room1'] ;
   $data['room2'] = $_POST['room2'] ;
-  
+
+  if (updateCourse($_POST['id'], $data)) {
 
 
- 	if (addCourse($data)) {
-  		echo "<script>alert('New Course Added to the database'); window.location.href='../coursereg.php';</script>";
-
-  	
- 	
- }
- 
+  	#echo "<script>alert('Student Info Sucessfully Updated.'); window.location.href='../showStudent.php?id=' . $_POST["id"]';</script>";
 
 
-  else{
+  	#echo 'Successfully updated!!';
 
-  
-    echo "<script>alert('Unsuccessful'); window.location.href='../coursereg.php';</script>"; 
-
- 
-
- }
+  	header('Location: ../showCourse.php?id=' . $_POST["id"]);
+  }
+} else {
+	echo 'You are not allowed to access this page.';
 }
 
-else{
-
-  		echo "<script>alert('Access not allowed.'); window.location.href='../coursereg.php';</script>";
-
-  	}
- 
-
-    
 
 ?>
-
-
-

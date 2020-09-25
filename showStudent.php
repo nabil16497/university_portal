@@ -10,12 +10,11 @@ else{
 }
 require_once 'controller/studentInfo.php';
 
-$student = fetchStudent($_GET['id']);
-if($_SESSION['type'] == "admin")
-{
+if($_SESSION['type'] == "admin"){
 	$student = fetchStudent($_GET['id']);
 }
-else{
+
+elseif($_SESSION['type'] == "student"){
 	$student = fetchStudent($_SESSION['uname']);
 }
 
@@ -28,7 +27,15 @@ else{
 	
 </head>
 <body>
-<?php include('header1.php');?>
+<?php
+if($_SESSION['type'] == "admin"){
+	include('header1.php');
+}
+
+elseif($_SESSION['type'] == "student"){
+	include('header2.php');
+}
+?>
 <span class="textcenter textmain"><h1>Show Details</h1></span>
 	<div class="textcenter">
 	<div class="main_internaldiv textleft fontsize160">
