@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_SESSION['uname']) && $_SESSION['type'] == "student"){
+if(isset($_SESSION['uname']) && $_SESSION['type'] == "faculty"){
 }
 
 else{
@@ -30,16 +30,16 @@ else{
       		</div>
       <ul class="nav-links">
         <li><a href="#">________</a>
-        	<div class="sub-nav-links">
-        		<ul>
-        			
-        		</ul>
-        	</div>
+          <div class="sub-nav-links">
+            <ul>
+              
+            </ul>
+          </div>
         </li>
-        <li><a href="showStudent.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'];?></a>
-        	<div class="sub-nav-links">
-        		
-			</div>
+        <li><a href="showFaculty.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'];?></a>
+          <div class="sub-nav-links">
+            
+      </div>
         </li>
 		<li><a href="logout.php"><abbr title="Logout"><i style='font-size:24px' class='fas'>&#xf2f5;</i></abbr></a></li>
       </ul>

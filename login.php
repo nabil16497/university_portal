@@ -13,8 +13,8 @@
 		<div class="main_internaldiv textcenter fontsize160 width100">
 
 			<a href="loginAdmin.php"><button class="btn">Login As Admin</button></a><br>
-			<a href="loginAdmin.php"><button class="btn">Login As Student</button></a><br>
-			<a href="loginAdmin.php"><button class="btn">Login As Faculty</button></a>
+			<a href="loginStudent.php"><button class="btn">Login As Student</button></a><br>
+			<a href="loginFaculty.php"><button class="btn">Login As Faculty</button></a>
 
 		</div>
 		</div>

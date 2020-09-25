@@ -60,6 +60,33 @@ function showAllFacultys(){
     return $rows;
 }
 
+function showAllCourses(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `section` ';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+
+function showAllRegistration(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT registration.id, registration.student_id, section.coursename, section.section FROM registration INNER JOIN section ON registration.section_id=section.id;';
+
+
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
 function showStudent($id){
 	$conn = db_conn();
 	$selectQuery = "SELECT * FROM `student_info` where id = ?";
@@ -91,9 +118,26 @@ function showFaculty($id){
     return $row;
 }
 
-function searchUser($id){
+
+function showCourse($id){
     $conn = db_conn();
-    $selectQuery = "SELECT * FROM `student_info` WHERE id LIKE '%$id%'";
+    $selectQuery = "SELECT * FROM `section` where id = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+}
+
+
+function searchStudent($data){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `student_info` WHERE firstname LIKE '%$data%'";
 
     
     try{
@@ -105,6 +149,27 @@ function searchUser($id){
     return $rows;
 }
 
+function registration($data, $faculty, $course, $semester){
+    $conn = db_conn();
+    $selectQuery = "INSERT into registration (semester_id, student_id, faculty_id, section_id)
+VALUES (:semester_id, :student_id, :faculty_id, :section_id)";
+foreach($data as $student){
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            ':semester_id' => $semester,
+            ':student_id'  => $student,
+            ':faculty_id'  => $faculty,
+            ':section_id'  => $course
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    }
+    $conn = null;
+    return true;
+}
 
 function addStudent($data){
 	$conn = db_conn();
@@ -264,6 +329,41 @@ function updateFaculty($id, $data){
     return true;
 }
 
+
+function updateCourse($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `section` SET `course_id`=?,`coursename`=?,`day1`=?,`starttime1`=?,`endtime1`=?,`day2`=?,`starttime2`=?,`endtime2`=?,`credit`=?,`section`=?,`room1`=?,`room2`=? WHERE `id`=?";
+
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+            $data['courseid'],
+            $data['coursename'],
+            $data['day1'],
+            $data['starttime1'],
+            $data['endtime1'],
+            $data['day2'],
+            $data['starttime2'],
+            $data['endtime2'],
+            $data['credit'],
+            $data['section'],
+            $data['room1'],
+            $data['room2'],
+            $id
+
+        ]);
+
+
+        
+        
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
 function deleteStudent($id){
 	$conn = db_conn();
     $selectQuery = "DELETE FROM `student_info` WHERE `id` = ?";
@@ -278,6 +378,8 @@ function deleteStudent($id){
     return true;
 }
 
+
+
 //new added
 function deleteFaculty($id){
     $conn = db_conn();
@@ -291,4 +393,33 @@ function deleteFaculty($id){
     $conn = null;
 
     return true;
+}
+
+function deleteCourse($id){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `section` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+}
+
+function deleteRegistration($id){
+    $conn = db_conn();
+    $selectQuery = "DELETE FROM `registration` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+
 }
