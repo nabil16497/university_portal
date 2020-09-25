@@ -36,12 +36,10 @@ else{
             </ul>
           </div>
         </li>
-        <li><a href="#">Show</a>
+        <li><a href="showStudent.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'] ?></a>
           <div class="sub-nav-links">
             <ul>
-              <li>
-                <a href="showStudent.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'] ?></a>
-              </li>
+              
         </ul>
       </div>
         </li>

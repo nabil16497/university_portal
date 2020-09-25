@@ -46,7 +46,7 @@ $students = fetchAllStudents();
 		<th>Action</th>
 	</tr>
      </thead>
-     <tbody>
+     <tbody id="tablebody">
      	  <?php foreach ($students as $i => $student): ?>
 			<tr>
 				<td data-label="ID"><abbr title="Click here to see all full details"><a href="showStudent.php?id=<?php echo $student['id'] ?>"><span class="textmain"><?php echo strval($student['id']) ?></a></abbr></span></td>
@@ -70,6 +70,7 @@ $students = fetchAllStudents();
 </div>
 
 <?php include('footer.php');?>
+
 
 <script type="text/javascript" src="js/jquery-3.5.1.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
