@@ -32,11 +32,11 @@ else{
         <li><a href="#">________</a>
         	<div class="sub-nav-links">
         		<ul>
-        			<li><a href="#">Result</a></li>
+        			
         		</ul>
         	</div>
         </li>
-        <li><a href="#">Show</a>
+        <li><a href="showStudent.php?id=<?php echo $_SESSION['uname'] ?>"><?php echo $_SESSION['uname'];?></a>
         	<div class="sub-nav-links">
         		
 			</div>
