@@ -71,7 +71,100 @@ function showAllCourses(){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+/*..............Aman............*/
+function showAllday(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where coursename='Computer graphics'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}/*seperate*/
+function showAllday2(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where coursename='Advance DataBaseManegement Sys'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+/*end*/
+function showAllday1(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where day2='Tuesday' and coursename='Computer graphics'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+function showAllday3(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where day2='Tuesday' and coursename='Advance DataBaseManegement Sys'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+function showAllday4(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where day1='Monday' and coursename='Web Technology'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+function showAllday5(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where day1='Monday' and coursename='EM'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+function showAllday6(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where day2='Wednesday' and coursename='EM'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+function showAllday7(){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `section` where day2='Wednesday' and coursename='Web Technology'";
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
 
+
+
+/*............End............*/
 
 function showAllRegistration(){
     $conn = db_conn();
