@@ -4,9 +4,9 @@ require_once 'db_connect.php';
 
 
 function verify_user($uname,$pass,$type){
-
+    
     $conn = db_conn();
-
+    
     if($type == "admin"){
     $selectQuery = "SELECT * FROM `admin_info` WHERE id = '$uname' AND pass = '$pass'";
     }
@@ -71,6 +71,38 @@ function showAllCourses(){
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
 }
+
+
+function showAllDepartments(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `department` ';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+
+
+function showAllPrograms(){
+    $conn = db_conn();
+    $selectQuery = 'SELECT * FROM `program` ';
+    try{
+        $stmt = $conn->query($selectQuery);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $rows;
+}
+
+
+
+
+
 /*..............Aman............*/
 function showAllday(){
     $conn = db_conn();
@@ -228,6 +260,73 @@ function showCourse($id){
 }
 
 
+function showDepartment($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `department` where id = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+}
+
+
+
+
+function showProgramdeptW($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `program` where deptid = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function showProgram($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `program` where id = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+}
+
+
 function searchStudent($data){
     $conn = db_conn();
     $selectQuery = "SELECT * FROM `student_info` WHERE firstname LIKE '%$data%'";
@@ -364,6 +463,68 @@ VALUES (:firstname, :lastname, :contact, :email, :gender, :dob, :dept, :national
 }
 
 
+
+
+
+
+
+
+
+function addDept($data){
+    $conn = db_conn();
+
+    
+    $selectQuery = "INSERT INTO `department`(`name`,`status`)
+VALUES (:dname,:dstatus)";
+    
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            ':dname' => $data['deptname'],
+            ':dstatus' => 1
+
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+
+
+
+function addProgram($data){
+    $conn = db_conn();
+
+    
+    $selectQuery = "INSERT INTO `program`(`name`,`deptid`,`status`)
+VALUES (:pname,:deptid,:pstatus)";
+    
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            ':pname' => $data['name'],
+            ':deptid' => $data['deptid'],
+            ':pstatus' => 1
+
+        ]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+
+
+
+  
+
 function updateStudent($id, $data){
     $conn = db_conn();
     $selectQuery = "UPDATE `student_info` SET `firstname`=?, `lastname`=?, `contact`=?, `email`=?, `dob`=?, `gender`=?,`dept`=?, `program`=?,`image`=?, `address`=? where `id` =?";
@@ -457,6 +618,82 @@ function updateCourse($id, $data){
     return true;
 }
 
+
+
+
+function getdeptname($id){
+    $conn = db_conn();
+    $selectQuery = "SELECT * FROM `department` where id = ?";
+
+    try {
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+    
+
+
+}
+
+
+
+
+
+function updateProgram($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `program` SET `name`=?,`deptid`=?,`status`=? WHERE `id`=?";
+
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+            $data['name'],
+            $data['departmentid'],
+            $data['status'],
+            $id
+
+        ]);
+
+
+        
+        
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+function updateDepartment($id, $data){
+    $conn = db_conn();
+    $selectQuery = "UPDATE `department` SET `name`=?,`status`=? WHERE `id`=?";
+
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([
+
+            $data['departmentname'],
+            $data['status'],
+            $id
+
+        ]);
+    
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    
+    $conn = null;
+    return true;
+}
+
+
+
+
+
+
 function deleteStudent($id){
 	$conn = db_conn();
     $selectQuery = "DELETE FROM `student_info` WHERE `id` = ?";
@@ -470,6 +707,38 @@ function deleteStudent($id){
 
     return true;
 }
+
+
+
+function deleteDepartment($id){
+	$conn = db_conn();
+    $selectQuery = "DELETE FROM `department` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+}
+
+
+function deleteProgram($id){
+	$conn = db_conn();
+    $selectQuery = "DELETE FROM `program` WHERE `id` = ?";
+    try{
+        $stmt = $conn->prepare($selectQuery);
+        $stmt->execute([$id]);
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
+    $conn = null;
+
+    return true;
+}
+
 
 
 

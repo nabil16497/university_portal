@@ -24,7 +24,12 @@ else{
 		}
 		else{
 			echo "<script>alert('username or password incorrect!')</script>";
-			echo "<script>location.href='login.php'</script>";
+			if($_POST['type']=='admin')
+				{echo "<script>location.href='loginAdmin.php'</script>";}
+			elseif($_POST['type']=='faculty')
+				{echo "<script>location.href='loginFaculty.php'</script>";}
+				elseif($_POST['type']=='student')
+			{echo "<script>location.href='loginStudent.php'</script>";}
 			setcookie('uname', $_COOKIE['uname'], time()-1);
 			setcookie('pass', $_COOKIE['pass'], time()-1);	
 		}
@@ -70,9 +75,7 @@ elseif($_SESSION['type'] == "faculty"){
 <br>
 <span class="textcenter textmain"><h3><?php echo $_SESSION['uname'];?></h3></span>
 </div>
-<div></div>
 
 <?php include('footer.php');?>
-
 </body>
 </html>

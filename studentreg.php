@@ -8,6 +8,12 @@ else{
 
   echo "<script>location.href='login.php'</script>";
 }
+
+require_once 'controller/departmentInfo.php';
+$departments = fetchAlldepartments();
+require_once 'controller/programInfo.php';
+$programs = fetchAllprograms();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,10 +81,9 @@ else{
 			</div>
 			<span class="red_text" id="emaile"></span>
 			<div class="form">
-					<select name="nationality" required />
-						<option selected disabled hidden></option>
-						<option value="Bangladesh">Bangladesh</option>
-						</select>
+				<select id="nationality" name="nationality">
+			
+				</select>
 					<label for="nationality" class="label-name">
 					<span class="content-name">Nationality</span>
 					</label>
@@ -109,14 +114,26 @@ else{
 			</div>
 
 			<div class="form">
-					<input type="text" name="department" autocomplete="off" required />
-					<label for="department" class="label-name">
+			<select name="deptid" id="deptid" onclick="disable()" required />
+						<option selected disabled hidden></option>
+
+                        <?php foreach ($departments as $i => $department): ?>
+						<option value= <?php echo $department['id'] ?>> <?php echo $department['name'] ?> </option>		 
+                    <?php endforeach; ?>
+					</select> 
+					<label for="dept" class="label-name">
 					<span class="content-name">Department</span>
 					</label>
 			</div>
 
 			<div class="form">
-					<input type="text" name="program" autocomplete="off" required />
+			<select name="program" id="program" onclick="disable()" required />
+						<option selected disabled hidden></option>
+
+                        <?php foreach ($programs as $i => $program): ?>
+						<option value= <?php echo $program['id'] ?>> <?php echo $program['name'] ?> </option>		 
+                    <?php endforeach; ?>
+					</select> 
 					<label for="program" class="label-name">
 					<span class="content-name">Program</span>
 					</label>
@@ -187,6 +204,6 @@ else{
 	
 	}
 </script>
-
+<script src="js/tel.js"></script>
 </body>
 </html>

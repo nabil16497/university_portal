@@ -8,6 +8,12 @@ else{
 
   echo "<script>location.href='login.php'</script>";
 }
+
+require_once 'controller/departmentInfo.php';
+$departments = fetchAlldepartments();
+require_once 'controller/programInfo.php';
+$programs = fetchAllprograms();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,10 +80,9 @@ else{
 			</div>
 
 			<div class="form">
-					<select name="nationality" required />
-						<option selected disabled hidden></option>
-						<option value="Bangladesh">Bangladesh</option>
-						</select>
+			<select id="nationality" name="nationality">
+			
+			</select>
 					<label for="nationality" class="label-name">
 					<span class="content-name">Nationality</span>
 					</label>
@@ -108,7 +113,13 @@ else{
 			</div>
 
 			<div class="form">
-					<input type="text" name="department" autocomplete="off" required />
+			<select name="deptid" id="deptid" onclick="disable()" required />
+						<option selected disabled hidden></option>
+
+                        <?php foreach ($departments as $i => $department): ?>
+						<option value= <?php echo $department['id'] ?>> <?php echo $department['name'] ?> </option>		 
+                    <?php endforeach; ?>
+					</select> 
 					<label for="department" class="label-name">
 					<span class="content-name">Department</span>
 					</label>
@@ -134,9 +145,8 @@ else{
 
 </div>
 
-	
 
-<?php include('footer.php');?>
-
+<div id="divfooter"> <?php include('footer.php');?></div>
+<script src="js/tel.js"></script>
 </body>
 </html>

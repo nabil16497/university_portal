@@ -12,6 +12,11 @@ else{
 require_once 'controller/studentInfo.php';
 $student = fetchStudent($_GET['id']);
 
+require_once 'controller/departmentInfo.php';
+$departments = fetchAlldepartments();
+require_once 'controller/programInfo.php';
+$programs = fetchAllprograms();
+
  ?>
 
 <!DOCTYPE html>
@@ -68,7 +73,7 @@ $student = fetchStudent($_GET['id']);
 
 			<div class="form">
 					<select name="gender" required >
-						<option selected><?php echo $student['gender'] ?></option>	
+						<option selected><?php if ($student['gender']==0) echo 'Male'; else echo 'Female';?></option>	
 						<option value="Male">Male</option>
 						<option value="Female">Female</option>
 					</select> 
@@ -126,14 +131,26 @@ $student = fetchStudent($_GET['id']);
 			</div>
 
 			<div class="form">
-					<input value="<?php echo $student['dept'] ?>" type="text" name="department" autocomplete="off" required />
+			<select name="deptid" id="deptid" onclick="disable()" required />
+						<option selected><?php echo $student['dept'] ?></option>
+
+                        <?php foreach ($departments as $i => $department): ?>
+						<option value= <?php echo $department['id'] ?>> <?php echo $department['name'] ?> </option>		 
+                    <?php endforeach; ?>
+					</select> 
 					<label for="department" class="label-name">
 					<span class="content-name">Department</span>
 					</label>
 			</div>
-
+			
 			<div class="form">
-					<input value="<?php echo $student['program'] ?>" type="text" name="program" autocomplete="off" required />
+			<select name="program" id="program" onclick="disable()" required />
+						<option selected><?php echo $student['program'] ?></option>
+
+                        <?php foreach ($programs as $i => $program): ?>
+						<option value= <?php echo $program['id'] ?>> <?php echo $program['name'] ?> </option>		 
+                    <?php endforeach; ?>
+					</select> 
 					<label for="program" class="label-name">
 					<span class="content-name">Program</span>
 					</label>

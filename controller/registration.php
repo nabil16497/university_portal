@@ -18,6 +18,7 @@ if(!isset($_POST['reg-student'])){
   $regcourse = $_POST['reg-course'] ;
   $regsemester = $_POST['reg-semester'] ;
   
+  
 
 
  	if (registration($_POST['reg-student'], $regfaculty, $regcourse, $regsemester)) {

@@ -1,3 +1,7 @@
+html{
+  height: 100%;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,14 +10,15 @@
 }
 
 
-
 body{
 	margin: 0;
 	background-color: #FCF6F5FF;
+  min-height: 100%;
 	display: flex;
   justify-content: space-around;
   flex-direction: column;
   font-family: sans-serif;
+
 
 
   
@@ -21,13 +26,19 @@ body{
 
 
 footer{
+
   clear: both;
+  
   background: #000000;
   text-align: center;
   color: #ffffff;
   opacity: .7;
-  margin-top: 40px;
+  margin-top: auto;
+  position: fixed;
+  bottom: 0;
+ 
 }
+
 
 /*--------form-------*/
 
@@ -95,7 +106,7 @@ input[type=checkbox]{
   bottom: 5px;
   left: 0px;
   transform: all 0.3s ease;
-}
+ }
 
 .form input:focus + .label-name .content-name,
 .form input:valid + .label-name .content-name{

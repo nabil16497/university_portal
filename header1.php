@@ -36,6 +36,8 @@ else{
         			<li><a href="facultyreg.php">Faculty Registration</a></li>
                     <li><a href="coursereg.php">Course Registration</a></li>
                     <li><a href="registration1.php">Register Semester</a></li>
+					<li><a href="deptreg.php">Department Registration</a></li>
+                    <li><a href="progreg.php">Pgorram Registration</a></li>
         		</ul>
         	</div>
         </li>
