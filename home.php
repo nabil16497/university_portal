@@ -23,6 +23,7 @@ else{
 			echo "<script>location.href='home.php'</script>";
 		}
 		else{
+			
 			echo "<script>alert('username or password incorrect!')</script>";
 			if($_POST['type']=='admin')
 				{echo "<script>location.href='loginAdmin.php'</script>";}
@@ -75,7 +76,7 @@ elseif($_SESSION['type'] == "faculty"){
 <br>
 <span class="textcenter textmain"><h3><?php echo $_SESSION['uname'];?></h3></span>
 </div>
-
+<div></div>
 <?php include('footer.php');?>
 </body>
 </html>
